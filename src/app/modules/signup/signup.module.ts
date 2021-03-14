@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { SignupRoutingModule } from '@src/app/modules/signup/signup-routing.module';
 import { SharedModule } from '@src/app/shared/shared.module';
 
+import { SignupComponent } from '@src/app/modules/signup/components/signup/signup.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [SignupComponent],
   imports: [
     SharedModule,
     SignupRoutingModule
