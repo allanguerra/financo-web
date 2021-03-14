@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "financo-web"
+    }
+  },
+  "defaultProject": "financo-web",
+  "cli": {
+    "analytics": false
+  }
 }
