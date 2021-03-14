@@ -1,0 +1,66 @@
+body {
+  font-family: $font_family;
+  font-size: $mob_p;
+  font-weight: $font_regular;
+  color: $grayscale_700;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_p;
+  }
+}
+
+small {
+  font-size: $mob_small;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_small;
+  }
+}
+
+h1 {
+  font-size: $mob_h1;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h1;
+  }
+}
+
+h2 {
+  font-size: $mob_h2;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h2;
+  }
+}
+
+h3 {
+  font-size: $mob_h3;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h3;
+  }
+}
+
+h4 {
+  font-size: $mob_h4;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h4;
+  }
+}
+
+h5 {
+  font-size: $mob_h5;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h5;
+  }
+}
+
+h6 {
+  font-size: $mob_h6;
+
+  @media #{$medium-and-up} {
+    font-size: $dsk_h6;
+  }
+}
