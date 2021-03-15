@@ -1,3 +1,54 @@
 .join {
-  background: $primary;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_presentation {
+    background-image: url('../../assets/img/splash_screen_bg.jpg');
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-logo {
+      width: 80%;
+      margin-top: 160px;
+
+      @media #{$medium-and-up} {
+        width: 60%;
+      }
+      @media #{$large-and-up} {
+        width: 60%;
+        margin-top: 0;
+      }
+    }
+
+    @media #{$large-and-up} {
+      width: 70%;
+      justify-content: center;
+    }
+  }
+
+  &_form {
+    margin-top: -300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media #{$large-and-up} {
+      width: 30%;
+      margin-top: 0;
+    }
+  }
+
+  @media #{$large-and-up} {
+    flex-direction: row;
+  }
 }
