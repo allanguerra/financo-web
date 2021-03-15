@@ -4,8 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'signup',
+    redirectTo: 'join',
     pathMatch: 'full'
+  },
+  {
+    path: 'join',
+    loadChildren: () => import('./modules/join/join.module').then(module => module.JoinModule)
   }
 ];
 
