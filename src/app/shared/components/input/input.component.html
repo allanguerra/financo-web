@@ -1,0 +1,7 @@
+<div class="input" [ngClass]="{'error': hasError(), 'dark': dark}">
+  <label for="input" class="input-label">{{label}}</label>
+
+  <ng-content></ng-content>
+
+  <span class="input-error">{{getMessage()}}</span>
+</div>

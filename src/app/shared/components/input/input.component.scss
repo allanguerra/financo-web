@@ -1,0 +1,68 @@
+@import '../../../../style/utils/utils';
+
+.input {
+  display: flex;
+  flex-direction: column;
+
+  color: $primary;
+  width: 100%;
+  margin-bottom: 16px;
+
+  &-label {
+    font-size: $mob_label;
+    margin-bottom: 8px;
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+
+  & ::ng-deep .input-control {
+    padding: 12px;
+    font-size: $mob_label;
+
+    border: 1px solid $primary;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+
+  &-error {
+    display: none;
+    font-size: $mob_label;
+    margin-bottom: 8px;
+
+    color: $danger;
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+
+  &.dark {
+    color: $grayscale_0;
+
+    & ::ng-deep .input-control {
+      border-color: $primary_d2;
+    }
+
+    & .input-error {
+      color: $grayscale_0;
+    }
+  }
+
+  &.error {
+
+    & .input-error {
+      display: block;
+    }
+
+    & ::ng-deep .input-control {
+      border-color: $danger;
+    }
+  }
+}
