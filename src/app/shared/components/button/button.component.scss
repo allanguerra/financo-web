@@ -1,0 +1,46 @@
+@import '../../../../style/utils/utils';
+
+.button {
+  font-size: $mob_button;
+  color: $grayscale_700;
+
+  padding: 12px 48px;
+
+  background: $grayscale_100;
+  border: none;
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  transition: background 0.05s ease-in;
+
+  &:hover {
+    background: $grayscale_300;
+  }
+
+  &:active {
+    background: $grayscale_50;
+  }
+
+  &:disabled {
+    background: $grayscale_300;
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    background: $secondary;
+
+    &:hover {
+      background: $secondary_d1;
+    }
+
+    &:active {
+      background: $secondary_l1;
+    }
+
+    &:disabled {
+      background: $grayscale_100;
+    }
+  }
+
+}
