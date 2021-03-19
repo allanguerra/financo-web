@@ -24,7 +24,7 @@ export class InputComponent implements OnInit {
     if (this.control.errors && this.control.errors.required) {
       return 'campo obrigatório';
     } else if (this.control.errors && this.control.errors.minlength) {
-      return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`
+      return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`;
     }
     return null;
   }
