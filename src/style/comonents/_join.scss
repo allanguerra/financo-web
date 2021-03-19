@@ -30,20 +30,34 @@
     }
 
     @media #{$large-and-up} {
-      width: 70%;
+      width: 60%;
       justify-content: center;
     }
   }
 
-  &_form {
-    margin-top: -300px;
+  &_content {
+    margin-top: -350px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    width: 70%;
+
+    &-form {
+      width: 100%;
+
+      @media #{$medium-and-up} {
+        width: 40%;
+      }
+
+      @media #{$large-and-up} {
+        width: 70%;
+      }
+    }
+
     @media #{$large-and-up} {
-      width: 30%;
+      width: 40%;
       margin-top: 0;
     }
   }
