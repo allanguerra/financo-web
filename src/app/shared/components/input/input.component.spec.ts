@@ -63,4 +63,14 @@ describe('InputComponent', () => {
 
     expect(input.classList).toContain('error');
   });
+
+  it('should show tooltip if it is provided', () => {
+    component.tooltip = 'any_tooltip';
+    fixture.detectChanges();
+
+    const tooltip = fixture.debugElement.nativeElement.querySelector('.input-label_tooltip');
+
+    expect(tooltip).toBeTruthy();
+    expect(tooltip.getAttribute('data-text')).toEqual('any_tooltip');
+  });
 });
