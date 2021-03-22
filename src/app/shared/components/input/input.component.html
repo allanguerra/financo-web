@@ -1,5 +1,10 @@
 <div class="input" [ngClass]="{'error': hasError(), 'dark': dark}">
-  <label for="input" class="input-label">{{label}}</label>
+
+  <div class="input-label">
+    <label for="input" class="input-label_text">{{label}}</label>
+    <span *ngIf="tooltip" class="input-label_tooltip" [ngClass]="{'show': show}" (click)="showTooltip()"
+          [attr.data-text]="tooltip"><i class="fas fa-info-circle"></i></span>
+  </div>
 
   <ng-content></ng-content>
 

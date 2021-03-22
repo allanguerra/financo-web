@@ -12,6 +12,56 @@
     font-size: $mob_label;
     margin-bottom: 8px;
 
+    &_text {
+      margin-right: 8px;;
+    }
+
+    &_tooltip {
+      position: relative;
+    
+      &::before {
+        content: attr(data-text);
+        position: absolute;
+    
+        top: 50%;
+        transform:translateY(-50%);
+        left: 16px;
+        margin-left: 15px;
+    
+        width: 1000%;
+        padding: 16px;
+        border-radius: 8px;
+        background: $primary;
+    
+        font-size: $mob_label;
+        color: $grayscale_0;
+        text-align: center;
+
+        display: none;
+      }
+    
+      &::after {
+        content: "";
+        position: absolute;
+        
+        top: 50%;
+        transform:translateY(-50%);
+        left: 16px;
+        margin-left:-5px;
+    
+        border:12px solid $primary;
+        border-color: transparent $primary transparent transparent;
+        
+        display: none;
+      }
+    
+      &:hover, &.show {
+        &::before, &::after {
+          display: block;
+        }
+      }
+    }
+
     @media #{$large-and-up} {
       font-size: $dsk_label;
     }
