@@ -28,6 +28,8 @@ export class InputComponent implements OnInit {
       return 'campo obrigatório';
     } else if (this.control.errors && this.control.errors.email) {
       return 'não é um email válido';
+    } else if (this.control.errors && this.control.errors.pattern) {
+      return 'o formato é inválido';
     } else if (this.control.errors && this.control.errors.minlength) {
       return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`;
     }
