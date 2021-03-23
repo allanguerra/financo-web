@@ -8,4 +8,4 @@ export const api = {
   join: {
     signup: `${BASE_URL}/signup`
   }
-}
+};
