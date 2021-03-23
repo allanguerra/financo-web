@@ -7,8 +7,7 @@ import { REGEX } from '@src/app/utils/consts';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  templateUrl: './signup.component.html'
 })
 export class SignupComponent extends BaseJoinComponent implements OnInit {
 
