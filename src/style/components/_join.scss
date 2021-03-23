@@ -54,6 +54,32 @@
       @media #{$large-and-up} {
         width: 70%;
       }
+
+      &-advice {
+        font-size: $mob_p;
+        
+        p {
+          font-weight: $font_regular;
+
+          a {
+            color: $grayscale_700;
+            font-weight: $font_bold;
+            text-decoration: none;
+          }
+        }
+
+        &.dark {
+          color: $grayscale_0;
+
+          & a {
+            color: $grayscale_0;
+          }
+        }
+
+        @media #{$large-and-up} {
+          font-size: $dsk_p;
+        }
+      }
     }
 
     @media #{$large-and-up} {

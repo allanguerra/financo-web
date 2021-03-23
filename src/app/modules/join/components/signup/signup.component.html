@@ -4,8 +4,27 @@
     <img src="../../../../../assets/img/logo.svg" alt="logo do financo" class="join_presentation-logo">
   </div>
 
-  <div class="join_form">
-    
+  <div class="join_content">
+    <form [formGroup]="modelForm" class="join_content-form">
+
+      <app-input label="E-mail" [control]="modelForm.get('email')" [dark]="isDarkMode()">
+        <input class="input-control" type="text" id="email" 
+               formControlName="email" placeholder="Digite seu e-mail">
+      </app-input>
+
+      <app-input label="Senha" [control]="modelForm.get('password')" [dark]="isDarkMode()"
+                 [tooltip]="passwordTooltip">
+        <input class="input-control" type="password" id="password" 
+               formControlName="password" placeholder="Digite sua senha">
+      </app-input>
+
+      <app-button text="Sign Up" [click]="signup.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
+
+      <div class="join_content-form-advice" [ngClass]="{'dark': isDarkMode()}">
+        <p>Já possui cadastro, <a routerLink="/join/login">clique aqui</a> para entrar.</p>
+      </div>
+
+    </form>
   </div>
 
 </section>
