@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, HostListener, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Signup } from '@src/app/modules/join/models/signup.model';
 import { SignupService } from '@src/app/modules/join/services/signup-service/signup.service';
@@ -35,6 +35,13 @@ export class SignupComponent extends BaseJoinComponent implements OnInit {
         this.router.navigate(['/join/login']);
       }
     });
+  }
+
+  // LISTENER METHODS
+
+  @HostListener('window:resize')
+  protected onResize(): void {
+    this.resizing();
   }
 
   // PROTECTED METHODS

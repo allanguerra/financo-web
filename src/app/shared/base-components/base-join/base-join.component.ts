@@ -1,4 +1,4 @@
-import { HostListener, Injector, OnInit } from '@angular/core';
+import { Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -32,9 +32,7 @@ export abstract class BaseJoinComponent implements OnInit {
 
   // LISTENER METHODS
 
-  @HostListener('window:resize')
-  public onResize(): void {
-    console.log('batata');
+  protected resizing(): void {
     this.screenWidth = window.innerWidth;
   }
 
