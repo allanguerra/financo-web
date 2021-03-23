@@ -5,3 +5,7 @@ export const REGEX = {
 export const SIZES = {
   MEDIUM_SCRREN_UP: 993
 };
+
+export const SESSION = {
+  TOKEN: 'financo-token'
+};
