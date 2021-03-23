@@ -1,0 +1,24 @@
+<section class="join">
+
+  <div class="join_presentation">
+    <img src="../../../../../assets/img/logo.svg" alt="logo do financo" class="join_presentation-logo">
+  </div>
+
+  <div class="join_content">
+    <form [formGroup]="modelForm" class="join_content-form">
+
+      <app-input label="E-mail" [control]="modelForm.get('email')" [dark]="isDarkMode()">
+        <input class="input-control" type="text" id="email" 
+               formControlName="email" placeholder="Digite seu e-mail">
+      </app-input>
+
+      <app-button text="Recuperar Senha" [click]="rememberMe.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
+
+      <div class="join_content-form-advice" [ngClass]="{'dark': isDarkMode()}">
+        <p>Lembrou sua senha? <a routerLink="/join/login">clique aqui</a> para voltar</p>
+      </div>
+
+    </form>
+  </div>
+
+</section>

@@ -4,9 +4,10 @@ import { JoinRoutingModule } from '@src/app/modules/join/join-routing.module';
 
 import { SignupComponent } from '@src/app/modules/join/components/signup/signup.component';
 import { LoginComponent } from '@src/app/modules/join/components/login/login.component';
+import { ForgotComponent } from '@src/app/modules/join/components/forgot/forgot.component';
 
 @NgModule({
-  declarations: [SignupComponent, LoginComponent],
+  declarations: [SignupComponent, LoginComponent, ForgotComponent],
   imports: [
     SharedModule,
     JoinRoutingModule
