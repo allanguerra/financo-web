@@ -25,8 +25,7 @@ export class LoginComponent extends BaseJoinComponent implements OnInit {
     const credentials: Credentials = Object.assign(new Credentials(), this.modelForm.value);
     this.loginService.login(credentials).subscribe({
       next: () => {
-        console.log('logado');
-        // this.router.navigate(['']);
+        this.router.navigate(['/home']);
       }
     });
   }

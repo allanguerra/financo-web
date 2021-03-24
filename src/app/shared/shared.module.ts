@@ -4,17 +4,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { InputComponent } from '@src/app/shared/components/input/input.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { MainComponent } from './components/main/main.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [InputComponent, ButtonComponent],
+  declarations: [InputComponent, ButtonComponent, MainComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     // MODULES
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     // COMPONENTS
     InputComponent,
     ButtonComponent

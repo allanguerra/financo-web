@@ -16,7 +16,6 @@ import { INTERCEPTORS_PROVIDER } from '@src/app/infra/interceptors';
   ],
   imports: [
     BrowserModule,
-    RouterModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule
