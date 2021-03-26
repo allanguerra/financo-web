@@ -8,5 +8,11 @@ export const api = {
   join: {
     signup: `${BASE_URL}/signup`,
     login: `${BASE_URL}/auth/login`
+  },
+  user: {
+    get: `${BASE_URL}/users`
+  },
+  boards: {
+    getAll: `${BASE_URL}/boards`
   }
 };
