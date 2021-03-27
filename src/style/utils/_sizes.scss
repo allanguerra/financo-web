@@ -1,0 +1,16 @@
+// Header
+
+$header_height: 56px;
+$header_logo_height: 24px;
+
+// Aside
+
+$aside_mob_height: 375px;
+$aside_mob_hiden_height: -359px;
+
+$aside_md_height: calc(100vh - #{$header_height});
+$aside_md_width: 280px;
+$aside_md_hiden_width: -200px;
+
+$aside_lg_width: 320px;
+$aside_lg_hiden_width: -240px;
