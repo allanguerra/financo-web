@@ -74,10 +74,27 @@
     border: 1px solid $primary;
     border-radius: 8px;
 
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba($color: $grayscale_0, $alpha: 0.65);
 
     @media #{$large-and-up} {
       font-size: $dsk_label;
+    }
+  }
+
+  & ::ng-deep .input_content {
+
+    display: flex;
+    align-items: center;
+
+    i {
+      padding: 4px;
+      margin-left: 16px;
+
+      background: rgba($color: $grayscale_0, $alpha: 0.25);
+      border-radius: 16px;
+
+      font-size: 16px;
+      color: $primary_d2
     }
   }
 

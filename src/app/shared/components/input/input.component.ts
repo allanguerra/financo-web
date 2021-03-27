@@ -20,18 +20,23 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {}
 
   public hasError(): boolean {
-    return this.control.invalid && this.control.touched;
+    if (this.control) {
+      return this.control.invalid && this.control.touched;
+    }
+    return false;
   }
 
   public getMessage(): string | null {
-    if (this.control.errors && this.control.errors.required) {
-      return 'campo obrigatório';
-    } else if (this.control.errors && this.control.errors.email) {
-      return 'não é um email válido';
-    } else if (this.control.errors && this.control.errors.pattern) {
-      return 'o formato é inválido';
-    } else if (this.control.errors && this.control.errors.minlength) {
-      return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`;
+    if (this.control) {
+      if (this.control.errors && this.control.errors.required) {
+        return 'campo obrigatório';
+      } else if (this.control.errors && this.control.errors.email) {
+        return 'não é um email válido';
+      } else if (this.control.errors && this.control.errors.pattern) {
+        return 'o formato é inválido';
+      } else if (this.control.errors && this.control.errors.minlength) {
+        return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`;
+      }
     }
     return null;
   }
