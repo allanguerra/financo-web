@@ -1,0 +1,35 @@
+<header class="header" (click)="toggleOpen()">
+    <img class="header_logo" src="../../../../assets/img/logo.svg" alt="logo financo">
+</header>
+<aside class="aside" [ngClass]="{'open': open}">
+
+  <div class="aside_content">
+
+    <img [src]="profile?.thumbnail || userAvatar" 
+         alt="foto do usuário" class="aside_content_avatar">
+
+    <div class="aside_content_welcome">
+      <span>Olá{{profile?.name ? ', ' + profile?.name : ''}}</span>
+      <i class="fas fa-cog"></i>
+    </div>
+
+    <app-input label="Seus Boards" [dark]="true">
+
+      <div class="input_content">
+        <select class="input-control" (change)="changeBoard($event.target.value)">
+          <option *ngFor="let board of boards" [value]="board?._id">{{ board?.title }}</option>
+        </select>
+  
+        <i class="fas fa-share"></i>
+        <i class="fas fa-cog"></i>
+      </div>
+      
+    </app-input>
+
+  </div>
+
+  <i (click)="toggleOpen()" class="aside_open-icon"></i>
+  <i (click)="toggleOpen()" class="fas fa-chevron-right"></i>
+</aside>
+
+<div class="overlay" [ngClass]="{'open': open}"></div>

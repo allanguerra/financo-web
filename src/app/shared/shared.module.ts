@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { InputComponent } from '@src/app/shared/components/input/input.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
-import { MainComponent } from './components/main/main.component';
-import { RouterModule } from '@angular/router';
+import { MainComponent } from '@src/app/shared/components/main/main.component';
+import { NavComponent } from '@src/app/shared/components/nav/nav.component';
 
 @NgModule({
-  declarations: [InputComponent, ButtonComponent, MainComponent],
+  declarations: [
+    InputComponent,
+    ButtonComponent,
+    MainComponent,
+    NavComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -21,7 +27,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     // COMPONENTS
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    NavComponent
   ]
 })
 export class SharedModule { }
