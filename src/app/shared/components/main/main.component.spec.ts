@@ -1,6 +1,8 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { MainComponent } from './main.component';
+import { MainComponent } from '@src/app/shared/components/main/main.component';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -8,7 +10,8 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
+      imports: [ RouterTestingModule ],
+      declarations: [ MainComponent, MockFabComponent, MockNavComponent ]
     })
     .compileComponents();
   }));
@@ -23,3 +26,9 @@ describe('MainComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({ selector: 'app-nav', template: '' })
+class MockNavComponent {}
+
+@Component({ selector: 'app-fab', template: '' })
+class MockFabComponent {}
