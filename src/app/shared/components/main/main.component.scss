@@ -1,0 +1,11 @@
+@import '../../../../style/utils/utils';
+
+.main_content {
+  position: absolute;
+  top: $main_mob_top;
+
+  @media #{$medium-and-up} {
+    top: $main_md_top;
+    left: $main_md_left;
+  }
+}
