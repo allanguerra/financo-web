@@ -7,13 +7,15 @@ import { InputComponent } from '@src/app/shared/components/input/input.component
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MainComponent } from '@src/app/shared/components/main/main.component';
 import { NavComponent } from '@src/app/shared/components/nav/nav.component';
+import { FabComponent } from '@src/app/shared/components/fab/fab.component';
 
 @NgModule({
   declarations: [
     InputComponent,
     ButtonComponent,
     MainComponent,
-    NavComponent
+    NavComponent,
+    FabComponent
   ],
   imports: [
     CommonModule,

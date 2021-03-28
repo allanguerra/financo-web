@@ -1,0 +1,35 @@
+@import '../../../../style/utils/utils';
+
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 58px;
+  width: 58px;
+
+  background: $secondary;
+  border-radius: 50%;
+  cursor: pointer;
+
+  font-size: 32px;
+  color: $primary;
+
+  box-shadow: 2px 4px 4px rgba($color: $grayscale_1000, $alpha: 0.25);
+
+  &:hover {
+    box-shadow: 4px 6px 6px rgba($color: $grayscale_1000, $alpha: 0.25);
+    transform: translate(-2px, -2px);
+  }
+
+  @media #{$medium_and_up} {
+    height: 72px;
+    width: 72px;
+
+    font-size: 40px;
+  }
+}
