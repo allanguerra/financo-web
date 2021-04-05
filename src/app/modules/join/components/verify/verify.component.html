@@ -1,0 +1,18 @@
+<section class="verify">
+
+  <div class="verify_header">
+    <img src="../../../../../assets/img/logo.svg" alt="">
+  </div>
+
+  <div class="verify_content">
+
+    <h2 class="verify_content-title">{{title}}</h2>
+    <p class="verify_content-text">{{text}}</p>
+
+    <app-button *ngIf="verified"
+      [click]="continue.bind(this)"
+      [text]="buttonText"></app-button>
+
+  </div>
+
+</section>

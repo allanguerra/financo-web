@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForgotComponent } from '@src/app/modules/join/components/forgot/forgot.component';
 import { LoginComponent } from '@src/app/modules/join/components/login/login.component';
 import { SignupComponent } from '@src/app/modules/join/components/signup/signup.component';
+import { VerifyComponent } from '@src/app/modules/join/components/verify/verify.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'remember-me',
     component: ForgotComponent
+  },
+  {
+    path: 'verify/:userId',
+    component: VerifyComponent
   }
 ];
 

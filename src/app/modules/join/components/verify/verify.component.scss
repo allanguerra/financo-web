@@ -1,0 +1,62 @@
+@import '../../../../../style/utils/utils';
+
+.verify {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: $primary;
+  color: $grayscale_0;
+
+  &_header {
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 48px;
+
+      @media #{$medium_and_up} {
+        height: 60px;
+      }
+    }
+  }
+
+  &_content {
+    margin: 24px;
+    padding: 24px;
+    max-width: 100%;
+
+    background: rgba($color: $grayscale_0, $alpha: 0.25);
+    border: 1px solid $primary_d2;
+    border-radius: 8px;
+
+    &-title {
+      font-size: $mob_h2;
+      color: $grayscale_100;
+
+      @media #{$medium_and_up} {
+        font-size: $dsk_h2;
+      }
+    }
+
+    &-text {
+      font-size: $mob_p;
+
+      @media #{$medium_and_up} {
+        font-size: $dsk_p;
+      }
+    }
+
+    @media #{$medium_and_up} {
+      max-width: 70%;
+    }
+    @media #{$large_and_up} {
+      max-width: 50%;
+    }
+  }
+
+}
