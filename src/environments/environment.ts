@@ -7,7 +7,8 @@ export const environment = {
 export const api = {
   join: {
     signup: `${BASE_URL}/signup`,
-    login: `${BASE_URL}/auth/login`
+    login: `${BASE_URL}/auth/login`,
+    verify: `${BASE_URL}/users/verify`
   },
   user: {
     get: `${BASE_URL}/users`
