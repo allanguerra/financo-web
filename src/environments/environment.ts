@@ -8,7 +8,10 @@ export const api = {
   join: {
     signup: `${BASE_URL}/signup`,
     login: `${BASE_URL}/auth/login`,
-    verify: `${BASE_URL}/users/verify`
+    verify: `${BASE_URL}/users/verify`,
+    forgot: {
+      register: `${BASE_URL}/users/forgot`
+    }
   },
   user: {
     get: `${BASE_URL}/users`
