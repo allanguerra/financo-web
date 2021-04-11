@@ -4,8 +4,7 @@ import { VerifyEmailService } from '@src/app/modules/join/services/verify-email-
 
 @Component({
   selector: 'app-verify',
-  templateUrl: './verify.component.html',
-  styleUrls: ['./verify.component.scss']
+  templateUrl: './verify.component.html'
 })
 export class VerifyComponent implements OnInit {
 

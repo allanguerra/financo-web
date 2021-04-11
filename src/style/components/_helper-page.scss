@@ -1,6 +1,5 @@
-@import '../../../../../style/utils/utils';
-
-.verify {
+.helper-page {
+  position: relative;
   width: 100%;
   height: 100vh;
 
@@ -9,10 +8,12 @@
   justify-content: center;
   align-items: center;
 
-  background: $primary;
+  background: linear-gradient($primary_d1, $primary_l1);
   color: $grayscale_0;
 
   &_header {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
 
@@ -26,13 +27,20 @@
   }
 
   &_content {
+    position: relative;
+    z-index: 2;
     margin: 24px;
     padding: 24px;
     max-width: 100%;
 
-    background: rgba($color: $grayscale_0, $alpha: 0.25);
-    border: 1px solid $primary_d2;
+    background: rgba($grayscale_0, 0.1);
+    border: 1px solid rgba($grayscale_0, 0.5);
+    border-right: 1px solid rgba($grayscale_0, 0.15);
+    border-bottom: 1px solid rgba($grayscale_0, 0.15);
     border-radius: 8px;
+
+    box-shadow: 16px 16px 32px rgba($grayscale_1000, 0.25);
+    backdrop-filter: blur(8px);
 
     &-title {
       font-size: $mob_h2;
