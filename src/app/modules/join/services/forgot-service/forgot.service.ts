@@ -18,8 +18,8 @@ export class ForgotService {
     return this.http.post<void>(api.join.forgot.register, forgot);
   }
 
-  public verifyForgotStatus(forgotId: string): Observable<ForgotStatus> {
-    return this.http.get<ForgotStatus>(`${api.join.forgot.register}/${forgotId}/status`);
+  public verifyForgotStatus(forgotId: string): Observable<string> {
+    return this.http.get(`${api.join.forgot.register}/${forgotId}/status`, { responseType: 'text' });
   }
 
   public changeForgotPassword(forgotId: string, changePassword: ChangePassword): Observable<void> {
