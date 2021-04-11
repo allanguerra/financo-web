@@ -6,13 +6,15 @@ import { SignupComponent } from '@src/app/modules/join/components/signup/signup.
 import { LoginComponent } from '@src/app/modules/join/components/login/login.component';
 import { ForgotComponent } from '@src/app/modules/join/components/forgot/forgot.component';
 import { VerifyComponent } from '@src/app/modules/join/components/verify/verify.component';
+import { ChangeForgotPasswordComponent } from '@src/app/modules/join/components/change-forgot-password/change-forgot-password.component';
 
 @NgModule({
   declarations: [
     SignupComponent,
     LoginComponent,
     ForgotComponent,
-    VerifyComponent
+    VerifyComponent,
+    ChangeForgotPasswordComponent
   ],
   imports: [
     SharedModule,
