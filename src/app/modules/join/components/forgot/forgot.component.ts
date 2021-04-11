@@ -1,6 +1,9 @@
 import { Component, HostListener, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+
 import { BaseJoinComponent } from '@src/app/shared/base-components/base-join/base-join.component';
+import { Forgot } from '@src/app/modules/join/models/forgot.model';
+import { ForgotService } from '@src/app/modules/join/services/forgot-service/forgot.service';
 
 @Component({
   selector: 'app-forgot',
@@ -9,7 +12,8 @@ import { BaseJoinComponent } from '@src/app/shared/base-components/base-join/bas
 export class ForgotComponent extends BaseJoinComponent implements OnInit {
 
   constructor(
-    protected readonly injector: Injector
+    protected readonly injector: Injector,
+    private readonly forgotService: ForgotService
   ) {
     super(injector);
   }
@@ -19,8 +23,14 @@ export class ForgotComponent extends BaseJoinComponent implements OnInit {
   }
 
   public rememberMe(): void {
-    // TODO: criar serviço no backend
-    return;
+    const forgot = Object.assign(new Forgot(), this.modelForm.value);
+
+    this.forgotService.registerForgot(forgot).subscribe({
+      next: () => {
+        // TODO: notificar usuário de e-mail enviado.
+        this.router.navigate(['/join/login']);
+      }
+    });
   }
 
   // LISTENER METHODS
