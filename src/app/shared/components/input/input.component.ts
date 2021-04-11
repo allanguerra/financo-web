@@ -36,6 +36,8 @@ export class InputComponent implements OnInit {
         return 'o formato é inválido';
       } else if (this.control.errors && this.control.errors.minlength) {
         return `mínimo de ${this.control.errors.minlength.requiredLength} caracteres`;
+      } else if (this.control.errors && this.control.errors.notMatch) {
+        return `as senhas são diferentes`;
       }
     }
     return null;
