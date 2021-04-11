@@ -10,7 +10,8 @@ export const api = {
     login: `${BASE_URL}/auth/login`,
     verify: `${BASE_URL}/users/verify`,
     forgot: {
-      register: `${BASE_URL}/users/forgot`
+      register: `${BASE_URL}/users/forgot`,
+      changePassword: `${BASE_URL}/users/change-password/forgot`
     }
   },
   user: {
