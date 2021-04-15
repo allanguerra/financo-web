@@ -1,6 +1,7 @@
 import { Component, Injectable, Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
 
 import { SIZES } from '@src/app/utils/consts';
 
@@ -14,12 +15,14 @@ export abstract class BaseJoinComponent implements OnInit {
 
   protected readonly fb: FormBuilder;
   protected readonly router: Router;
+  protected readonly messagesService: MessagesService;
 
   constructor(
     protected readonly injector: Injector
   ) {
     this.fb = injector.get(FormBuilder);
     this.router = injector.get(Router);
+    this.messagesService = injector.get(MessagesService);
   }
 
   ngOnInit(): void {
