@@ -5,6 +5,7 @@ import { SignupService } from '@src/app/modules/join/services/signup-service/sig
 import { BaseJoinComponent } from '@src/app/shared/base-components/base-join/base-join.component';
 import { joinDictionary } from '@src/app/shared/dictionaries/join.dictionary';
 import { REGEX } from '@src/app/utils/consts';
+import { Messages } from '@src/app/utils/messages';
 
 @Component({
   selector: 'app-signup',
@@ -31,7 +32,7 @@ export class SignupComponent extends BaseJoinComponent implements OnInit {
 
     this.signupService.signup(signup).subscribe({
       next: () => {
-        // TODO: criar pagina para validação de e-mail.
+        this.messagesService.notify(Messages.SIGNUP_SUCCESS);
         this.router.navigate(['/join/login']);
       }
     });
