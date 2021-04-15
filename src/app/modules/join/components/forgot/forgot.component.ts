@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 import { BaseJoinComponent } from '@src/app/shared/base-components/base-join/base-join.component';
 import { Forgot } from '@src/app/modules/join/models/forgot.model';
 import { ForgotService } from '@src/app/modules/join/services/forgot-service/forgot.service';
+import { Messages } from '@src/app/utils/messages';
 
 @Component({
   selector: 'app-forgot',
@@ -27,7 +28,7 @@ export class ForgotComponent extends BaseJoinComponent implements OnInit {
 
     this.forgotService.registerForgot(forgot).subscribe({
       next: () => {
-        // TODO: notificar usuário de e-mail enviado.
+        this.messagesService.notify(Messages.FORGOT_EMAIL_SENT);
         this.router.navigate(['/join/login']);
       }
     });
