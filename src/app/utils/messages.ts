@@ -4,6 +4,6 @@ export const Messages = {
   SIGNUP_SUCCESS: {
     title: 'E-mail de verificação enviado',
     text: 'Para finalizar o cadastro acesse seu e-mail e click no link que enviamos.',
-    type: MessageType.SUCCESS
+    type: MessageType.INFO
   }
 };
