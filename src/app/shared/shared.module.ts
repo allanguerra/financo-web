@@ -8,6 +8,7 @@ import { ButtonComponent } from '@src/app/shared/components/button/button.compon
 import { MainComponent } from '@src/app/shared/components/main/main.component';
 import { NavComponent } from '@src/app/shared/components/nav/nav.component';
 import { FabComponent } from '@src/app/shared/components/fab/fab.component';
+import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FabComponent } from '@src/app/shared/components/fab/fab.component';
     ButtonComponent,
     MainComponent,
     NavComponent,
-    FabComponent
+    FabComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FabComponent } from '@src/app/shared/components/fab/fab.component';
     // COMPONENTS
     InputComponent,
     ButtonComponent,
-    NavComponent
+    NavComponent,
+    SnackbarComponent
   ]
 })
 export class SharedModule { }

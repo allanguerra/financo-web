@@ -1,0 +1,14 @@
+<div class="snackbar" [ngClass]="[message.type, show]">
+  <div class="snackbar_close" (click)="close()">
+    <i class="fas fa-times"></i>
+  </div>
+  
+  <div class="snackbar_icon">
+    <i [ngClass]="icon"></i>
+  </div>
+
+  <div class="snacbar_content">
+    <h2 class="snackbar_content-title">{{message?.title}}</h2>
+    <p class="snackbar_content-text">{{message?.text}}</p>
+  </div>
+</div>

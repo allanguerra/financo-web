@@ -1,0 +1,110 @@
+@import '../../../../style/utils/utils';
+
+.snackbar {
+  position: absolute;
+  z-index: 9999;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+
+  height: 120px;
+  margin: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  background: rgba($grayscale_0, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  border: 1px solid rgba($grayscale_0, 0.5);
+  border-right: 1px solid rgba($grayscale_0, 0.15);
+  border-bottom: 1px solid rgba($grayscale_0, 0.15);  
+  box-shadow: 16px 16px 32px rgba($grayscale_1000, 0.25);
+
+  color: $grayscale_300;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+
+  &.success {
+    color: $success;
+  }
+  &.warning {
+    color: $warning;
+  }
+  &.danger {
+    color: $danger_01;
+  }
+  &.info {
+    color: $info_01;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: inherit;
+      font-size: 2.5em;
+    }
+  }
+
+  &_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &-title {
+      text-align: center;
+      color: inherit;
+      font-size: $mob_h2;
+    }
+    &-text {
+      text-align: center;
+      color: inherit;
+      font-size: $mob_p;
+    }
+  }
+
+  @media #{$medium-and-up} {
+    flex-direction: row;
+    height: 80px;
+    left: 20%;
+    right: 20%;
+
+    &_icon {
+      i {
+        padding-right: 32px;
+      }
+    }
+    &_content {
+      &-title {
+        text-align: start;
+      }
+      &-text {
+        text-align: start;
+      }
+    }
+  }
+  @media #{$large-and-up} {
+    left: 35%;
+    right: 35%;
+  }
+}
