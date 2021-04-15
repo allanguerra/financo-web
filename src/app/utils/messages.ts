@@ -10,5 +10,10 @@ export const Messages = {
     title: 'E-mail de validação enviado',
     text: 'Para redefinir sua senha acesse seu e-mail e click no link que enviamos.',
     type: MessageType.INFO
+  },
+  CHANGE_PASSWORD_SUCCESS: {
+    title: 'Senha alterada',
+    text: 'Sua senha foi alterada.',
+    type: MessageType.SUCCESS
   }
 };

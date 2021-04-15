@@ -6,7 +6,9 @@ import { ChangePassword } from '@src/app/modules/join/models/change-password.mod
 import { ForgotService } from '@src/app/modules/join/services/forgot-service/forgot.service';
 import { joinDictionary } from '@src/app/shared/dictionaries/join.dictionary';
 import { ForgotStatus } from '@src/app/shared/enums/forgot-status.enum';
+import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
 import { REGEX } from '@src/app/utils/consts';
+import { Messages } from '@src/app/utils/messages';
 import { isPasswordsValid } from '@src/app/utils/validators/password-match.validator';
 
 @Component({
@@ -31,7 +33,8 @@ export class ChangeForgotPasswordComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly fb: FormBuilder,
-    private readonly forgotService: ForgotService
+    private readonly forgotService: ForgotService,
+    private readonly messagesService: MessagesService
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +48,10 @@ export class ChangeForgotPasswordComponent implements OnInit {
     const changePassword: ChangePassword = Object.assign(new ChangePassword(), this.modelForm.value);
 
     this.forgotService.changeForgotPassword(this.forgotId, changePassword).subscribe({
-      next: () => this.router.navigate(['/join/login']),
+      next: () => {
+        this.messagesService.notify(Messages.CHANGE_PASSWORD_SUCCESS);
+        this.router.navigate(['/join/login']);
+      },
       complete: () => this.submiting = false
     });
   }
