@@ -76,6 +76,8 @@
 
     background: rgba($color: $grayscale_0, $alpha: 0.65);
 
+    outline: none;
+
     @media #{$large-and-up} {
       font-size: $dsk_label;
     }
