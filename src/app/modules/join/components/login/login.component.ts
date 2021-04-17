@@ -22,12 +22,14 @@ export class LoginComponent extends BaseJoinComponent implements OnInit {
   }
 
   public login(): void {
-    const credentials: Credentials = Object.assign(new Credentials(), this.modelForm.value);
-    this.loginService.login(credentials).subscribe({
-      next: () => {
-        this.router.navigate(['/home']);
-      }
-    });
+    if (this.modelForm.valid) {
+      const credentials: Credentials = Object.assign(new Credentials(), this.modelForm.value);
+      this.loginService.login(credentials).subscribe({
+        next: () => {
+          this.router.navigate(['/home']);
+        }
+      });
+    }
   }
 
   // LISTENER METHODS
@@ -35,6 +37,11 @@ export class LoginComponent extends BaseJoinComponent implements OnInit {
   @HostListener('window:resize')
   protected onResize(): void {
     this.resizing();
+  }
+
+  @HostListener('window:keydown.enter')
+  protected onKeydow(event): void {
+    this.login();
   }
 
   // PROTECTED METHODS
