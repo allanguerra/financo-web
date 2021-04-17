@@ -87,8 +87,8 @@ export class ChangeForgotPasswordComponent implements OnInit {
 
   private buildModelForm(): void {
     this.modelForm = this.fb.group({
-      newPassword: [null, [Validators.required, Validators.pattern(REGEX.PASSWORD)]],
-      repeatPassword: [null, [Validators.required]]
+      password: [null, [Validators.required, Validators.pattern(REGEX.PASSWORD)]],
+      confirmPassword: [null, [Validators.required]]
     }, { validator: isPasswordsValid });
   }
 
