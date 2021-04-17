@@ -6,6 +6,7 @@ import { BaseJoinComponent } from '@src/app/shared/base-components/base-join/bas
 import { joinDictionary } from '@src/app/shared/dictionaries/join.dictionary';
 import { REGEX } from '@src/app/utils/consts';
 import { Messages } from '@src/app/utils/messages';
+import { isPasswordsValid } from '@src/app/utils/validators/password-match.validator';
 
 @Component({
   selector: 'app-signup',
@@ -28,14 +29,16 @@ export class SignupComponent extends BaseJoinComponent implements OnInit {
 
   // TODO: adicionar tratamento para exibir mensagem quando clicar sem informar os dados para sign up
   public signup(): void {
-    const signup: Signup = Object.assign(new Signup(), this.modelForm.value);
+    if (this.modelForm.valid) {
+      const signup: Signup = Object.assign(new Signup(), this.modelForm.value);
 
-    this.signupService.signup(signup).subscribe({
-      next: () => {
-        this.messagesService.notify(Messages.SIGNUP_SUCCESS);
-        this.router.navigate(['/join/login']);
-      }
-    });
+      this.signupService.signup(signup).subscribe({
+        next: () => {
+          this.messagesService.notify(Messages.SIGNUP_SUCCESS);
+          this.router.navigate(['/join/login']);
+        }
+      });
+    }
   }
 
   // LISTENER METHODS
@@ -45,13 +48,19 @@ export class SignupComponent extends BaseJoinComponent implements OnInit {
     this.resizing();
   }
 
+  @HostListener('window:keydown.enter')
+  protected onEnterKeydown(): void {
+    this.signup();
+  }
+
   // PROTECTED METHODS
 
   protected buildModelForm(): void {
     this.modelForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.pattern(REGEX.PASSWORD)]]
-    });
+      password: [null, [Validators.required, Validators.pattern(REGEX.PASSWORD)]],
+      confirmPassword: [null, [Validators.required]]
+    }, { validator: isPasswordsValid });
   }
 
 }

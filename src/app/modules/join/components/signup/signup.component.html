@@ -8,7 +8,7 @@
     <form [formGroup]="modelForm" class="join_content-form">
 
       <app-input label="E-mail" [control]="modelForm.get('email')" [dark]="isDarkMode()">
-        <input class="input-control" type="text" id="email" 
+        <input class="input-control" type="text" id="email"
                formControlName="email" placeholder="Digite seu e-mail">
       </app-input>
 
@@ -16,6 +16,11 @@
                  [tooltip]="passwordTooltip">
         <input class="input-control" type="password" id="password" 
                formControlName="password" placeholder="Digite sua senha">
+      </app-input>
+
+      <app-input label="Confirme a senha" [control]="modelForm.get('confirmPassword')" [dark]="isDarkMode()">
+        <input class="input-control" type="password" id="confirmPassword" 
+               formControlName="confirmPassword" placeholder="Repita a sua senha">
       </app-input>
 
       <app-button text="Sign Up" [click]="signup.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
