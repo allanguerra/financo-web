@@ -1,0 +1,43 @@
+@import '../../../../style/utils/utils';
+
+.loadder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_bar {
+    height: 8px;
+    width: 8px;
+    background: $primary;
+    margin: 0px 4px;
+    border-radius: 2px;
+
+    animation: fill-bars 1.5s ease-in infinite;
+    animation-delay: calc(0.2s * var(--i));
+
+    &:nth-child(1) {
+      height: 8px;
+    }
+    &:nth-child(2) {
+      height: 14px;
+    }
+    &:nth-child(3) {
+      height: 20px;
+    }
+    &:nth-child(4) {
+      height: 36px;
+    }
+    &:nth-child(5) {
+      height: 32px;
+    }
+
+    @keyframes fill-bars {
+      0% { height: 32px; }
+      50% { height: 8px; }
+      100% { height: 32px; }
+    }
+  }
+}

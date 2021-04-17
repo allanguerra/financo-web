@@ -11,6 +11,7 @@ import { FabComponent } from '@src/app/shared/components/fab/fab.component';
 import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.component';
 import { ModalComponent } from '@src/app/shared/components/modal/modal.component';
 import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-modal.component';
+import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-moda
     FabComponent,
     SnackbarComponent,
     ModalComponent,
-    FabModalComponent
+    FabModalComponent,
+    LoadderComponent
   ],
   imports: [
     CommonModule,
