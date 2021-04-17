@@ -1,0 +1,60 @@
+@import '../../../../style/utils/utils';
+
+.modal {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.2s ease-in;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &_overlay {
+    position: fixed;
+    z-index: 9998;
+
+    height: 100%;
+    width: 100%;
+
+    background: rgba($grayscale_1000, 0.65);
+  }
+
+  &_container {
+    position: fixed;
+    z-index: 9999;
+
+    padding: 8px;
+    border-radius: 8px;
+
+    background: $grayscale_0;
+    box-shadow: 2px 4px 8px rgba($grayscale_1000, 0.25);
+
+    &-close {
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-end;
+
+      margin-bottom: 24px;
+
+      i {
+        color: $primary;
+        font-size: 1.5em;
+      }
+    }
+  }
+}

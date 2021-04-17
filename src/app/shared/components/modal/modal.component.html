@@ -1,0 +1,15 @@
+<div class="modal" [ngClass]="{ 'show': show }">
+
+  <div class="modal_overlay"></div>
+
+  <div class="modal_container">
+    
+    <div class="modal_container-close" (click)="closeModal()">
+      <i class="fas fa-times"></i>
+    </div>
+
+    <ng-content></ng-content>
+
+  </div>
+
+</div>

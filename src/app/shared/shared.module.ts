@@ -9,6 +9,7 @@ import { MainComponent } from '@src/app/shared/components/main/main.component';
 import { NavComponent } from '@src/app/shared/components/nav/nav.component';
 import { FabComponent } from '@src/app/shared/components/fab/fab.component';
 import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.component';
+import { ModalComponent } from '@src/app/shared/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.
     MainComponent,
     NavComponent,
     FabComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.
     InputComponent,
     ButtonComponent,
     NavComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }
