@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-modal.component';
 
 import { MainComponent } from '@src/app/shared/components/main/main.component';
+import { ModalService } from '@src/app/shared/services/modal-service/modal.service';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -11,7 +13,8 @@ describe('MainComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule ],
-      declarations: [ MainComponent, MockFabComponent, MockNavComponent ]
+      declarations: [ MainComponent, MockFabComponent, MockNavComponent ],
+      providers: [ ModalService ]
     })
     .compileComponents();
   }));
@@ -24,6 +27,17 @@ describe('MainComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should open modal when click on fab button', () => {
+    const modalServiceSpy = jest.spyOn(ModalService.prototype, 'openModal').mockReturnValueOnce(null);
+
+    const fabButton = fixture.debugElement.nativeElement.querySelector('app-fab');
+    fabButton.click();
+    fixture.detectChanges();
+
+    expect(modalServiceSpy).toHaveBeenCalledTimes(1);
+    expect(modalServiceSpy).toHaveBeenCalledWith(FabModalComponent);
   });
 });
 
