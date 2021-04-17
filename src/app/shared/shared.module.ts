@@ -38,7 +38,8 @@ import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-moda
     ButtonComponent,
     NavComponent,
     SnackbarComponent,
-    ModalComponent
+    ModalComponent,
+    FabModalComponent
   ]
 })
 export class SharedModule { }
