@@ -24,7 +24,6 @@ export class ModalComponent implements OnInit {
   }
 
   public closeModal(): void {
-    console.log('batata');
     this.show = false;
     setTimeout(() => this.modalService.closeModal(), 200);
   }
