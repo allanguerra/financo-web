@@ -1,9 +1,15 @@
 <app-modal>
 
   <div class="fab-modal">
-    <button class="fab-modal-button">Lançar Receita</button>
-    <button class="fab-modal-button">Lançar Despesa</button>
-    <button class="fab-modal-button outline">Categorias</button>
+    <button id="revenueButton" 
+      class="fab-modal-button">Lançar Receita</button>
+      
+    <button id="expenseButton" 
+      class="fab-modal-button">Lançar Despesa</button>
+
+    <button id="categoriesButton" 
+      class="fab-modal-button outline" 
+      (click)="navigateTo('categories')">Categorias</button>
   </div>
 
 </app-modal>
