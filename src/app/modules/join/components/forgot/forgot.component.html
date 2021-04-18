@@ -12,7 +12,7 @@
                formControlName="email" placeholder="Digite seu e-mail">
       </app-input>
 
-      <app-button text="Recuperar Senha" [click]="rememberMe.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
+      <app-button text="Recuperar Senha" (click)="rememberMe()" [disabled]="modelForm.invalid || submiting"></app-button>
 
       <div class="join_content-form-advice" [ngClass]="{'dark': isDarkMode()}">
         <p>Lembrou sua senha? <a routerLink="/join/login">clique aqui</a> para voltar</p>

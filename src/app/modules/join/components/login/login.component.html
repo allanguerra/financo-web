@@ -17,7 +17,7 @@
                formControlName="password" placeholder="Digite sua senha">
       </app-input>
 
-      <app-button text="Login" [click]="login.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
+      <app-button text="Login" (click)="login()" [disabled]="modelForm.invalid || submiting"></app-button>
 
       <div class="join_content-form-advice" [ngClass]="{'dark': isDarkMode()}">
         <p>Ainda não tem uma conta? <a routerLink="/join/signup">clique aqui</a> e crie a sua agora mesmo.</p>

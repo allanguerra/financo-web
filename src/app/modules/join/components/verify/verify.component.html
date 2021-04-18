@@ -10,7 +10,7 @@
     <p class="helper-page_content-text">{{text}}</p>
 
     <app-button *ngIf="verified"
-      [click]="continue.bind(this)"
+      (click)="continue()"
       [text]="buttonText"></app-button>
 
   </div>

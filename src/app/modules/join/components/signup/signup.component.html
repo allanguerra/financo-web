@@ -23,7 +23,7 @@
                formControlName="confirmPassword" placeholder="Repita a sua senha">
       </app-input>
 
-      <app-button text="Sign Up" [click]="signup.bind(this)" [disabled]="modelForm.invalid || submiting"></app-button>
+      <app-button text="Sign Up" (click)="signup()" [disabled]="modelForm.invalid || submiting"></app-button>
 
       <div class="join_content-form-advice" [ngClass]="{'dark': isDarkMode()}">
         <p>Já possui cadastro, <a routerLink="/join/login">clique aqui</a> para entrar.</p>
