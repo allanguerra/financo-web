@@ -15,7 +15,7 @@ export class ButtonComponent implements OnInit {
   @Input('type')
   public type: string = 'button';
 
-  @Input('style')
+  @Input('style-class')
   public style: string = 'primary';
 
   @Input('disabled')

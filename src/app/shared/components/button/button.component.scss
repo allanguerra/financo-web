@@ -28,6 +28,10 @@
     cursor: not-allowed;
   }
 
+  &.sm {
+    padding: 8px 32px;
+  }
+
   &.primary {
     background: $secondary;
 
@@ -38,9 +42,30 @@
     &:active {
       background: $secondary_l1;
     }
+  }
 
-    &:disabled {
-      background: $secondary;
+  &.secondary {
+    background: $primary;
+    color: $grayscale_0;
+
+    &:hover {
+      background: $primary_d1;
+    }
+
+    &:active {
+      background: $primary_l1;
+    }
+
+    &.outline {
+      background: $grayscale_0;
+      color: $primary;
+      border: 1px solid $primary;
+
+      &:hover {
+        background: $grayscale_50;
+        color: $primary_d1;
+        border: 1px solid $primary_d1;
+      }
     }
   }
 
