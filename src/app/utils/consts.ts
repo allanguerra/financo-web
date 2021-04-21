@@ -7,5 +7,6 @@ export const SIZES = {
 };
 
 export const SESSION = {
-  TOKEN: 'financo-token'
+  TOKEN: 'financo-token',
+  ACTIVE_BOARD: 'active-board'
 };
