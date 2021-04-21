@@ -1,0 +1,14 @@
+<div class="card" [style.border-left-color]="category?.color">
+  <div class="card_content">
+    <h4 class="card_content-title">{{category?.name}}</h4>
+    <span class="card_content-text"><small>{{category?.description}}</small></span>
+    <span class="card_content-type">{{category?.getType()}}</span>
+  </div>
+  <div class="card_actions">
+    <i class="fas fa-ellipsis-v" (click)="toggleShowMenu()"></i>
+    <div class="card_actions-menu" [ngClass]="{'show': showMenu}">
+      <i class="fas fa-cog" (click)="editCategory()"></i>
+      <i class="fas fa-trash" (click)="removeCategory()"></i>
+    </div>
+  </div>
+</div>
