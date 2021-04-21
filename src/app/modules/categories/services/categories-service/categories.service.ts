@@ -12,6 +12,10 @@ export class CategoriesService extends BaseModelService<Category> {
   constructor(
     protected readonly injector: Injector
   ) {
-    super(api.categories.base, injector);
+    super(
+      api.categories.base,
+      injector,
+      Category.fromData
+    );
   }
 }
