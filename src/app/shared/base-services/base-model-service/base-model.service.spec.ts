@@ -8,7 +8,7 @@ import { SESSION } from '@src/app/utils/consts';
 @Injectable()
 class EmptyBaseService extends BaseModelService<any> {
   constructor(protected readonly injector: Injector) {
-    super('http://localhost:3000/any_base_route/:boardId', injector);
+    super('http://localhost:3000/any_base_route/:boardId', injector, (data) => data);
   }
 }
 
