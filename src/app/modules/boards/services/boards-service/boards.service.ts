@@ -5,13 +5,12 @@ import { map } from 'rxjs/operators';
 
 import { Board } from '@src/app/modules/boards/models/board.model';
 import { api } from '@env/environment';
+import { SESSION } from '@src/app/utils/consts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardsService {
-
-  private activeBoard: string;
 
   public activeBoardChanges: BehaviorSubject<string> = new BehaviorSubject(null);
 
@@ -22,8 +21,8 @@ export class BoardsService {
   public getUserBoards(): Observable<Array<Board>> {
     return this.http.get<Array<Board>>(api.boards.getAll).pipe(
       map((boards: Array<Board>) => {
-        if (!this.activeBoard) {
-          this.activeBoard = boards[0]._id;
+        if (!this.getActiveBoard()) {
+          this.setActiveBoard(boards[0]._id);
         }
         return boards;
       })
@@ -31,11 +30,11 @@ export class BoardsService {
   }
 
   public getActiveBoard(): string {
-    return this.activeBoard;
+    return sessionStorage.getItem(SESSION.ACTIVE_BOARD);
   }
 
   public setActiveBoard(boardId: string): void {
-    this.activeBoard = boardId;
-    this.activeBoardChanges.next(this.activeBoard);
+    sessionStorage.setItem(SESSION.ACTIVE_BOARD, boardId);
+    this.activeBoardChanges.next(boardId);
   }
 }
