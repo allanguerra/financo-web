@@ -19,5 +19,8 @@ export const api = {
   },
   boards: {
     getAll: `${BASE_URL}/boards`
+  },
+  categories: {
+    base: `${BASE_URL}/board/:boardId/categories`
   }
 };
