@@ -1,0 +1,26 @@
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="list" *ngIf="!isLoading">
+  
+  <div class="list_back">
+    <app-button routerLink="/home"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="list_header">
+    <div class="list_header-title">
+      <h2>{{title}}</h2>
+    </div>
+
+    <button class="list_header-add"><i class="fas fa-plus"></i></button>
+  </div>
+
+  <div class="list_content">
+
+    <app-category-card *ngFor="let category of resources"
+      [category]="category"></app-category-card>
+
+  </div>
+
+</section>
