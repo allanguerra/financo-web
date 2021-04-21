@@ -15,5 +15,10 @@ export const Messages = {
     title: 'Senha alterada',
     text: 'Sua senha foi alterada.',
     type: MessageType.SUCCESS
+  },
+  ACTIVE_BOARD_NOT_FOUND: {
+    title: 'Nenhum board está ativo',
+    text: 'Por favor verifique seus boards e selecione um.',
+    type: MessageType.WARNING
   }
 };
