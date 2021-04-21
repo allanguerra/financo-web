@@ -55,16 +55,4 @@ describe('ButtonComponent', () => {
 
     expect(button.disabled).toBeTruthy();
   });
-
-  it('should call provided function when clicked', () => {
-    const cliclFn = jest.fn();
-    component.click = cliclFn;
-
-    const button = fixture.debugElement.nativeElement.querySelector('.button');
-    button.click();
-    fixture.detectChanges();
-
-    expect(cliclFn).toHaveBeenCalled();
-    expect(cliclFn).toHaveBeenCalledTimes(1);
-  });
 });
