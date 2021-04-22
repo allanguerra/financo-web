@@ -1,0 +1,17 @@
+<app-modal>
+
+  <div class="confirm-modal">
+    <div class="confirm-modal_icon">
+      <i class="fas fa-question-circle"></i>
+    </div>
+    <div class="confirm-modal_content">
+      <h2>Excluir este lançamento?</h2>
+      <p>Deseja excluir o lançamento<br>{{' da ' + confirmType}}{{': ' + resourceTitle}}?</p>
+    </div>
+    <div class="confirm-modal_buttons">
+      <app-button id="confirm_button" (click)="chose(true)" text="Confirmar" style-class="secondary sm"></app-button>
+      <app-button id="cancel_button" (click)="chose(false)" text="Cancelar" style-class="link sm"></app-button>
+    </div>
+  </div>
+
+</app-modal>
