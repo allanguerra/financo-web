@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Board } from '@src/app/modules/boards/models/board.model';
 
@@ -76,12 +77,23 @@ describe('NavComponent', () => {
     expect(boardsSpy).toHaveBeenCalledTimes(1);
     expect(component.boards).toBeTruthy();
   });
+
+  it('should logout when click on logout action button', () => {
+    const navigationSpy = jest.spyOn(UserServiceMock.prototype, 'logout').mockReturnValueOnce(null);
+
+    const logoutButton = fixture.debugElement.nativeElement.querySelector('#action-logout');
+    logoutButton.click();
+    fixture.detectChanges();
+
+    expect(navigationSpy).toHaveBeenCalledTimes(1);
+  });
 });
 
 class UserServiceMock {
   public getUserProfile(): Observable<Profile> {
     return of({ name: 'any_name', surname: 'any_surname', phone: 'any_phone', thumbanail: 'any_thumbnail' });
   }
+  public logout(): void {}
 }
 
 class BoardsServiceMock {
