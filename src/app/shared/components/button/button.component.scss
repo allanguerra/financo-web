@@ -69,4 +69,21 @@
     }
   }
 
+  &.link {
+    background: transparent;
+    color: $info;
+
+    &:hover {
+      color: $info_1;
+    }
+
+    &:active {
+      color: $info_1;
+    }
+
+    &:disabled {
+      color: $grayscale_300;
+    }
+  }
+
 }
