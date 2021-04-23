@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Injectable, Injector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { BaseModelService } from '@src/app/shared/base-services/base-model-service/base-model.service';
+import { BaseListService } from '@src/app/shared/base-services/base-list-service/base-list.service';
 import { SESSION } from '@src/app/utils/consts';
 
 @Injectable()
-class EmptyBaseService extends BaseModelService<any> {
+class EmptyBaseService extends BaseListService<any> {
   constructor(protected readonly injector: Injector) {
     super('http://localhost:3000/any_base_route/:boardId', injector, (data) => data);
   }

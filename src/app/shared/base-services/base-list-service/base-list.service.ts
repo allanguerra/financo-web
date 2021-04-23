@@ -6,7 +6,7 @@ import { Messages } from '@src/app/utils/messages';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export abstract class BaseModelService<T extends BaseModel> {
+export abstract class BaseListService<T extends BaseModel> {
 
   protected http: HttpClient;
   protected boardsService: BoardsService;
