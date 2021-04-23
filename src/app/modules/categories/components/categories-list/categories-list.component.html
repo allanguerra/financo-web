@@ -19,7 +19,8 @@
   <div class="list_content">
 
     <app-category-card *ngFor="let category of resources"
-      [category]="category"></app-category-card>
+      [category]="category"
+      (remove)="remove($event)"></app-category-card>
 
   </div>
 
