@@ -36,6 +36,10 @@ export class NavComponent implements OnInit {
     this.boardsService.setActiveBoard(boardId);
   }
 
+  public logout(): void {
+    this.userService.logout();
+  }
+
   // PRIVATE METHODS
 
   private getUserProfile(): void {

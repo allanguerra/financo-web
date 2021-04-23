@@ -39,6 +39,11 @@ export class UserService {
     }
   }
 
+  public logout(): void {
+    localStorage.removeItem(SESSION.TOKEN);
+    this.router.navigate(['/join/login']);
+  }
+
   // PRIVATE METHODS
 
   private getPayload(): boolean {
