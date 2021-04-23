@@ -1,4 +1,8 @@
+import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Category } from '@src/app/modules/categories/modals/category.model';
+import { CategoryType } from '@src/app/shared/enums/category-type.enum';
+import { Colors } from '@src/app/shared/enums/colors.enum';
 
 import { CategoryCardComponent } from './category-card.component';
 
@@ -30,4 +34,35 @@ describe('CategoryCardComponent', () => {
 
     expect(component.showMenu).toBe(true);
   });
+
+  it('should emit remove event when click on remove icon', (done) => {
+    component.category = fixtureCategory();
+    const removeIcon = fixture.debugElement.nativeElement.querySelector('.fas.fa-trash');
+
+    component.remove.subscribe({
+      next: (category: Category) => {
+        expect(category._id).toEqual('any_id');
+        expect(category.name).toEqual('any_name');
+        expect(category.description).toEqual('any_description');
+        expect(category.color).toEqual('#344563');
+        expect(category.type).toEqual('expense');
+        done();
+      },
+      error: () => done.fail()
+    });
+
+    removeIcon.click();
+    fixture.detectChanges();
+  });
 });
+
+function fixtureCategory(): Category {
+  return {
+    _id: 'any_id',
+    name: 'any_name',
+    description: 'any_description',
+    color: Colors.BLACK,
+    type: CategoryType.EXPENSE,
+    getType: () => 'DESPESAS'
+  };
+}
