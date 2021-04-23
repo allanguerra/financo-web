@@ -12,6 +12,7 @@ import { SnackbarComponent } from '@src/app/shared/components/snackbar/snackbar.
 import { ModalComponent } from '@src/app/shared/components/modal/modal.component';
 import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-modal.component';
 import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.component';
+import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.com
     SnackbarComponent,
     ModalComponent,
     FabModalComponent,
-    LoadderComponent
+    LoadderComponent,
+    ConfirmModalComponent
   ],
   imports: [
     CommonModule,
