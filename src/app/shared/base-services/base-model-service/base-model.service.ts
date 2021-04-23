@@ -31,6 +31,14 @@ export abstract class BaseModelService<T extends BaseModel> {
       );
   }
 
+  public destroy(id: string): Observable<void> {
+    const boardId = this.boardsService.getActiveBoard();
+    if (!boardId) {
+      return throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
+    }
+    return this.http.delete<void>(`${this.apiPath.replace(':boardId', boardId)}/${id}`);
+  }
+
   // PROTECTED METHODS
 
   protected dataToModel(data: any): T {
