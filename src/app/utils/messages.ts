@@ -20,5 +20,10 @@ export const Messages = {
     title: 'Nenhum board está ativo',
     text: 'Por favor verifique seus boards e selecione um.',
     type: MessageType.WARNING
+  },
+  RESOURCE_REMOVED: {
+    title: 'Lançamento excluido',
+    text: 'O lançamento foi excluido.',
+    type: MessageType.SUCCESS
   }
 };
