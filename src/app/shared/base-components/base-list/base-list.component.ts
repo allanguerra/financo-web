@@ -2,6 +2,9 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseModelService } from '@src/app/shared/base-services/base-model-service/base-model.service';
 import { BaseModel } from '@src/app/shared/models/base.model';
+import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
+import { ModalService } from '@src/app/shared/services/modal-service/modal.service';
+import { Messages } from '@src/app/utils/messages';
 
 @Component({ template: '' })
 export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
@@ -11,12 +14,16 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   public resources: Array<T> = [];
 
   protected readonly route: ActivatedRoute;
+  protected readonly modalService: ModalService;
+  protected readonly messagesService: MessagesService;
 
   constructor(
     protected readonly injector: Injector,
     protected readonly service: BaseModelService<T>
   ) {
     this.route = injector.get(ActivatedRoute);
+    this.modalService = injector.get(ModalService);
+    this.messagesService = injector.get(MessagesService);
   }
 
   ngOnInit(): void {
@@ -40,4 +47,17 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
       next: (resources: Array<T>) => this.resources = resources
     });
   }
+
+  protected destroyResource(id: string): void {
+    this.service.destroy(id).subscribe({
+      next: () => {
+        this.messagesService.notify(Messages.RESOURCE_REMOVED);
+        this.getModels();
+      }
+    });
+  }
+
+  // ABSTRACT METHODS
+
+  public abstract remove(resource: T): void;
 }
