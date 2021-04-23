@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Category } from '@src/app/modules/categories/modals/category.model';
 
 @Component({
@@ -9,6 +9,9 @@ export class CategoryCardComponent {
 
   @Input('category')
   public category: Category;
+
+  @Output()
+  public remove: EventEmitter<Category> = new EventEmitter<Category>();
 
   public showMenu: boolean = false;
 
@@ -23,7 +26,7 @@ export class CategoryCardComponent {
   }
 
   public removeCategory(): void {
-    return;
+    this.remove.emit(this.category);
   }
 
 }
