@@ -1,0 +1,39 @@
+@import '../../../../style/utils/utils';
+
+.input-radio {
+  margin-top: 12px;
+  margin-bottom: 16px;
+
+  &_option {
+    padding: 12px;
+    font-size: $mob_label;
+
+    border: 1px solid $primary;
+    border-right: none;
+
+    background: $grayscale_0;
+
+    cursor: pointer;
+
+    &:nth-child(1) {
+      border-radius: 8px 0 0 8px;
+    }
+    &:nth-last-child(1) {
+      border-right: 1px solid $primary;
+      border-radius: 0 8px 8px 0;
+    }
+
+    &:hover, &.active {
+      background: $grayscale_50;
+    }
+
+    &.active {
+      color: $primary_d1;
+      font-weight: $font-bold;
+    }
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+}
