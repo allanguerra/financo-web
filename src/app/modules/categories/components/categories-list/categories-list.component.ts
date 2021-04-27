@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { Category } from '@src/app/modules/categories/modals/category.model';
-import { CategoriesService } from '@src/app/modules/categories/services/categories-service/categories.service';
+import { Category } from '@src/app/modules/categories/models/category.model';
+import { CategoriesListService } from '@src/app/modules/categories/services/categories-list-service/categories-list.service';
 import { BaseListComponent } from '@src/app/shared/base-components/base-list/base-list.component';
 import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
 
@@ -12,7 +12,7 @@ export class CategoriesListComponent extends BaseListComponent<Category> impleme
 
   constructor(
     protected readonly injector: Injector,
-    readonly categoriesService: CategoriesService,
+    readonly categoriesService: CategoriesListService,
   ) {
     super(injector, categoriesService);
   }

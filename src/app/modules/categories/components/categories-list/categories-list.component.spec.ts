@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CategoryCardComponent } from '@src/app/modules/categories/components/category-card/category-card.component';
-import { Category } from '@src/app/modules/categories/modals/category.model';
-import { CategoriesService } from '@src/app/modules/categories/services/categories-service/categories.service';
+import { Category } from '@src/app/modules/categories/models/category.model';
+import { CategoriesListService } from '@src/app/modules/categories/services/categories-list-service/categories-list.service';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.component';
 import { CategoryType } from '@src/app/shared/enums/category-type.enum';
@@ -26,7 +26,7 @@ describe('CategoriesListComponent', () => {
         RouterTestingModule
       ],
       providers: [
-        CategoriesService,
+        CategoriesListService,
         {
           provide: ActivatedRoute,
           useValue: { snapshot: { parent: { url: [{ path: 'categories' }] } } }
@@ -43,7 +43,7 @@ describe('CategoriesListComponent', () => {
   }));
 
   beforeEach(() => {
-    serviceMock = jest.spyOn(CategoriesService.prototype, 'getAll')
+    serviceMock = jest.spyOn(CategoriesListService.prototype, 'getAll')
       .mockReturnValue(of(fixtureCategoriesList()));
 
     fixture = TestBed.createComponent(CategoriesListComponent);
