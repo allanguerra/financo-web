@@ -1,0 +1,14 @@
+<div class="input-colors" [ngClass]="{'open': open}">
+  <div class="input-colors_selected"
+    (click)="toggleOptions()"
+    [style.border-color]="getSelectedValue()?.hex"
+    [style.border-left-width]="getSelectedValue()?.hex ? '32px' : '1px' ">
+    <span>{{ getSelectedValue()?.name }}</span>
+  </div>
+  <div class="input-colors_options">
+    <span *ngFor="let color of colors"
+      (click)="changeValue(color?.hex)"
+      [ngClass]="{'active': color?.hex === control.value}"
+      [style.border-left-color]="color?.hex">{{color?.name}}</span>
+  </div>
+</div>

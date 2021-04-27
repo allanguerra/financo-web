@@ -1,0 +1,94 @@
+@import '../../../../style/utils/utils';
+
+.input-colors {
+
+  &_selected {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 12px;
+    
+    border: 1px solid $primary;
+    border-left: 32px solid $primary;
+    border-radius: 8px;
+
+    font-size: $mob_label;
+
+    cursor: pointer;
+
+    span {
+      text-transform: uppercase;
+    }
+
+    &::after {
+      content: '\f078';
+      font-family: 'FontAwesome';
+
+      transition: all 0.2s ease-out;
+    }
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+
+  &_options {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2px 4px;
+    
+    border: 1px solid $primary;
+    border-radius: 8px;
+
+    font-size: $mob_label;
+
+    height: 0px;
+    opacity: 0;
+
+    overflow-x: hidden;
+
+    transition: all 0.2s ease-out;
+
+    span {
+      padding: 12px 0;
+      padding-left: 8px;
+      margin: 4px;
+
+      border-left: 32px solid $grayscale_300;
+      border-radius: 8px;
+      
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      &.active, &:hover {
+        background: $grayscale_100;
+      }
+
+      &.active {
+        font-weight: $font_bold;
+      }
+    }
+
+    @media #{$large-and-up} {
+      font-size: $dsk_label;
+    }
+  }
+
+  
+
+  &.open {
+
+    .input-colors_selected {
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+    
+    .input-colors_options {
+      height: 100%;
+      opacity: 1;
+    }
+  }
+}
