@@ -1,0 +1,47 @@
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="form" *ngIf="!isLoading">
+  
+  <div class="form_back">
+    <app-button routerLink="/home/categories"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="form_header">
+    <div class="form_header-title">
+      <h2>{{title}}</h2>
+    </div>
+  </div>
+
+  <div class="form_content">
+    <form [formGroup]="modelForm" (ngSubmit)="submit()">
+      <app-input label="Nome *" [control]="modelForm.get('name')">
+        <input class="input-control" type="text" id="name" 
+               formControlName="name" placeholder="Nome da categoria">
+      </app-input>
+
+      <app-input label="Descrição" [control]="modelForm.get('description')">
+        <input class="input-control" type="text" id="description" 
+               formControlName="description" placeholder="Descrição da categoria">
+      </app-input>
+
+      <app-input label="Cor *" [control]="modelForm.get('color')">
+        <app-input-colors
+        [control]="modelForm.get('color')"
+        (setValue)="setColorValue($event)"></app-input-colors>
+      </app-input>
+
+      <app-input label="Tipo *" [control]="modelForm.get('type')">
+        <app-input-radio
+          [options]="options"
+          [control]="modelForm.get('type')"
+          (setValue)="setTypeValue($event)"></app-input-radio>
+      </app-input>
+
+      <app-button text="salvar" type="submit" 
+        [disabled]="modelForm.invalid || isSubmiting"></app-button>
+    </form>
+  </div>
+
+</section>

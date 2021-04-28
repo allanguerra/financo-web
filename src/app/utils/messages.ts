@@ -25,5 +25,15 @@ export const Messages = {
     title: 'Lançamento excluido',
     text: 'O lançamento foi excluido.',
     type: MessageType.SUCCESS
+  },
+  RESOURCE_STORED: {
+    title: 'Lançamento registrado',
+    text: 'O lançamento foi registrado.',
+    type: MessageType.SUCCESS
+  },
+  RESOURCE_UPDATED: {
+    title: 'Lançamento atualizado',
+    text: 'O lançamento foi atualizado.',
+    type: MessageType.SUCCESS
   }
 };
