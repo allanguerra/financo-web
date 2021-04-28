@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Category } from '@src/app/modules/categories/modals/category.model';
+import { Category } from '@src/app/modules/categories/models/category.model';
 
 @Component({
   selector: 'app-category-card',

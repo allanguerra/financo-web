@@ -7,7 +7,7 @@
   <div class="card_actions">
     <i class="fas fa-ellipsis-v" (click)="toggleShowMenu()"></i>
     <div class="card_actions-menu" [ngClass]="{'show': showMenu}">
-      <i class="fas fa-cog" (click)="editCategory()"></i>
+      <i class="fas fa-cog" [routerLink]="['/home/categories/edit', category._id]"></i>
       <i class="fas fa-trash" (click)="removeCategory()"></i>
     </div>
   </div>

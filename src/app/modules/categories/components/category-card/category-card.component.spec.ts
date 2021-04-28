@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Category } from '@src/app/modules/categories/modals/category.model';
+import { Category } from '@src/app/modules/categories/models/category.model';
 import { CategoryType } from '@src/app/shared/enums/category-type.enum';
 import { Colors } from '@src/app/shared/enums/colors.enum';
 
