@@ -13,6 +13,8 @@ import { ModalComponent } from '@src/app/shared/components/modal/modal.component
 import { FabModalComponent } from '@src/app/shared/components/fab-modal/fab-modal.component';
 import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.component';
 import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
+import { InputRadioComponent } from '@src/app/shared/components/input-radio/input-radio.component';
+import { InputColorsComponent } from '@src/app/shared/components/input-colors/input-colors.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/
     ModalComponent,
     FabModalComponent,
     LoadderComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    InputRadioComponent,
+    InputColorsComponent
   ],
   imports: [
     CommonModule,
@@ -42,8 +46,9 @@ import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/
     ButtonComponent,
     NavComponent,
     SnackbarComponent,
-    ModalComponent,
-    FabModalComponent
+    LoadderComponent,
+    InputRadioComponent,
+    InputColorsComponent
   ]
 })
 export class SharedModule { }
