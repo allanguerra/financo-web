@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 import { Forgot } from '@src/app/modules/join/models/forgot.model';
 import { api } from '@env/environment';
-import { ForgotStatus } from '@src/app/shared/enums/forgot-status.enum';
 import { ChangePassword } from '@src/app/modules/join/models/change-password.model';
 
 @Injectable({

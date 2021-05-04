@@ -80,6 +80,7 @@ describe('SignupComponent', () => {
 
     component.modelForm.get('email').setValue('any_email@email.com');
     component.modelForm.get('password').setValue('Any_psw0');
+    component.modelForm.get('confirmPassword').setValue('Any_psw0');
     fixture.detectChanges();
 
     const signupButton = fixture.debugElement.nativeElement.querySelector('.button');
@@ -87,6 +88,10 @@ describe('SignupComponent', () => {
     fixture.detectChanges();
 
     expect(signupSpy).toHaveBeenCalledTimes(1);
-    expect(signupSpy).toHaveBeenCalledWith({ email: 'any_email@email.com', password: 'Any_psw0' });
+    expect(signupSpy).toHaveBeenCalledWith({
+      email: 'any_email@email.com',
+      password: 'Any_psw0',
+      confirmPassword: 'Any_psw0'
+    });
   });
 });

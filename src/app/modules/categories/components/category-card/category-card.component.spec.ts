@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Category } from '@src/app/modules/categories/models/category.model';
 import { CategoryType } from '@src/app/shared/enums/category-type.enum';
 import { Colors } from '@src/app/shared/enums/colors.enum';
@@ -12,6 +12,7 @@ describe('CategoryCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ CategoryCardComponent ]
     })
     .compileComponents();
@@ -20,6 +21,16 @@ describe('CategoryCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CategoryCardComponent);
     component = fixture.componentInstance;
+
+    component.category = {
+      _id: 'any_id',
+      name: 'any_name',
+      description: 'any_description',
+      color: Colors.BLACK,
+      type: CategoryType.EXPENSE,
+      getType: () => 'DESPESA'
+    };
+
     fixture.detectChanges();
   });
 

@@ -38,8 +38,8 @@ describe('ButtonComponent', () => {
     expect(button.classList).toContain('primary');
   });
 
-  it('should add type class if type is provided', () => {
-    component.type = 'any_class';
+  it('should add style class if type is provided', () => {
+    component.style = 'any_class';
     fixture.detectChanges();
 
     const button = fixture.debugElement.nativeElement.querySelector('.button');

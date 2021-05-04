@@ -90,14 +90,14 @@ describe('ChangeForgotPasswordComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
 
-    component.modelForm.get('newPassword').setValue('Any_psw0');
-    component.modelForm.get('repeatPassword').setValue('Any_psw0');
+    component.modelForm.get('password').setValue('Any_psw0');
+    component.modelForm.get('confirmPassword').setValue('Any_psw0');
     fixture.detectChanges();
 
     const button = fixture.debugElement.nativeElement.querySelector('.button');
     button.click();
 
     expect(forgotSpy).toHaveBeenCalledTimes(1);
-    expect(forgotSpy).toHaveBeenCalledWith('any_forgot_id', {newPassword: 'Any_psw0', repeatPassword: 'Any_psw0'});
+    expect(forgotSpy).toHaveBeenCalledWith('any_forgot_id', {password: 'Any_psw0', confirmPassword: 'Any_psw0'});
   });
 });

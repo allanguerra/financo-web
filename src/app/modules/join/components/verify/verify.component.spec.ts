@@ -48,8 +48,8 @@ describe('VerifyComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
 
-    const title = fixture.debugElement.nativeElement.querySelector('.verify_content-title').textContent;
-    const description = fixture.debugElement.nativeElement.querySelector('.verify_content-text').textContent;
+    const title = fixture.debugElement.nativeElement.querySelector('.helper-page_content-title').textContent;
+    const description = fixture.debugElement.nativeElement.querySelector('.helper-page_content-text').textContent;
 
     expect(verifyEmailSpy).toHaveBeenCalledTimes(1);
     expect(verifyEmailSpy).toHaveBeenCalledWith('any_user_id');
@@ -57,15 +57,15 @@ describe('VerifyComponent', () => {
     expect(description).toEqual('Nos desculpe, tivemos um problema ao verificar o seu e-mail, por-favor tente novamente mais tarde.');
   });
 
-  it('should show success message if verify email service return error', () => {
+  it('should show success message if verify email service return success', () => {
     const verifyEmailSpy = jest.spyOn(VerifyEmailService.prototype, 'verifyEmail')
       .mockReturnValueOnce(of(null));
 
     component.ngOnInit();
     fixture.detectChanges();
 
-    const title = fixture.debugElement.nativeElement.querySelector('.verify_content-title').textContent;
-    const description = fixture.debugElement.nativeElement.querySelector('.verify_content-text').textContent;
+    const title = fixture.debugElement.nativeElement.querySelector('.helper-page_content-title').textContent;
+    const description = fixture.debugElement.nativeElement.querySelector('.helper-page_content-text').textContent;
 
     expect(verifyEmailSpy).toHaveBeenCalledTimes(1);
     expect(verifyEmailSpy).toHaveBeenCalledWith('any_user_id');
