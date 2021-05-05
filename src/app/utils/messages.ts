@@ -35,5 +35,20 @@ export const Messages = {
     title: 'Lançamento atualizado',
     text: 'O lançamento foi atualizado.',
     type: MessageType.SUCCESS
+  },
+  SESSION_EXPIRED: {
+    title: 'Sua sessão expirou',
+    text: 'Sua sessão expirou! Por favor faça login novamente.',
+    type: MessageType.WARNING
+  },
+  WRONG_LOGIN: {
+    title: 'E-mail ou senha inválidos',
+    text: 'Por favor verifique o e-mail e senha digitados.',
+    type: MessageType.WARNING
+  },
+  DEFAULT_ERROR: {
+    title: 'Ops, tivemos um problema',
+    text: 'Nos desculpe, algo aconteceu durante o processamento da sua operação.',
+    type: MessageType.DANGER
   }
 };
