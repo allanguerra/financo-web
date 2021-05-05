@@ -1,15 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { SESSION } from '@src/app/utils/consts';
+import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
+import { Messages } from '@src/app/utils/messages';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanLoad, CanActivate {
 
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly messageService: MessagesService,
+    private readonly router: Router,
+    private readonly ngZone: NgZone
+  ) {}
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     return this.checkAuthentication();
@@ -34,7 +40,9 @@ export class AuthGuard implements CanLoad, CanActivate {
   }
 
   private redirect(): void {
-    // TODO: exibir mensagem de não logado
-    this.router.navigate(['/join/login']);
+    this.ngZone.run(() => {
+      this.messageService.notify(Messages.SESSION_EXPIRED);
+      this.router.navigate(['/join/login']);
+    });
   }
 }
