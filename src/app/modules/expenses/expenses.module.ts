@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 
 import { ExpensesRoutingModule } from '@src/app/modules/expenses/expenses-routing.module';
 import { SharedModule } from '@src/app/shared/shared.module';
+import { ExpensesFormComponent } from './expenses-form/expenses-form.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ExpensesFormComponent],
   imports: [
     SharedModule,
     ExpensesRoutingModule
