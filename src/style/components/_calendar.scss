@@ -1,0 +1,99 @@
+.p-datepicker {
+  background: $grayscale_0;
+  
+  padding: 12px;
+  margin: 0;
+  margin-left: -40px;
+
+  border: 1px solid $primary;
+  border-radius: 8px;
+
+  .p-datepicker-header {
+    margin-bottom: 8px;
+
+    .p-datepicker-prev {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      background: $primary;
+  
+      height: 24px;
+      width: 24px;
+      padding: 2px;
+  
+      border: none;
+      border-radius: 24px;
+  
+      &::after {
+        content: '\f053';
+        font-family: 'FontAwesome';
+        color: $grayscale_0;
+        font-size: 0.7em;
+      }
+    }
+    .p-datepicker-next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      background: $primary;
+  
+      height: 24px;
+      width: 24px;
+      padding: 2px;
+  
+      border: none;
+      border-radius: 24px;
+  
+      &::after {
+        content: '\f054';
+        font-family: 'FontAwesome';
+        color: $grayscale_0;
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  .p-datepicker-calendar {
+    margin-bottom: 8px;
+
+    .p-disabled {
+      color: $primary_l2;
+    }
+  }
+
+  .p-datepicker-buttonbar {
+    .p-button {
+      background: $primary;
+
+      padding: 4px 16px;
+      border: none;
+      border-radius: 24px;
+
+      color: $grayscale_0;
+      font-size: 0.7em;
+    }
+  }
+}
+
+.p-calendar {
+  width: 100%;
+
+  input  {
+    width: 100% !important;
+    border-radius: 0 8px 8px 0 !important;
+    border-left: none !important;
+  }
+
+  .p-datepicker {
+    min-width: 90% !important;
+
+    @media #{$medium_and_up} {
+      min-width: 60% !important;
+    }
+    @media #{$large_and_up} {
+      min-width: 50% !important;
+    }
+  }
+}

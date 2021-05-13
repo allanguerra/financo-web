@@ -1,0 +1,15 @@
+.input-group {
+  display: flex;
+  flex-direction: row;
+
+  & :nth-child(1) {
+    & input {
+      margin-right: 4px;
+    }
+  }
+ 
+  app-input {
+    width: 50%;    
+  }
+  
+}

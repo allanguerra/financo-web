@@ -1,0 +1,49 @@
+.input-radio-circle {
+  display: flex;
+  flex-direction: column;
+
+  &_option {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    .input-on-radio {
+      margin: 0 8px;
+
+      &.w_25 {
+        width: 25px !important;
+      }
+
+      &.w_50 {
+        width: 50px !important;
+      }
+    }
+
+    &.active {
+      &::after {
+        content: '\f192';
+
+        font-family: 'Fontawesome';
+        font-size: 18px;
+        font-weight: $font_light;
+
+        margin-right: 8px;
+        color: $primary;
+      }
+    }
+
+    &::after {
+      content: '\f111';
+
+      font-family: 'Fontawesome';
+      font-size: 18px;
+      font-weight: $font_light;
+      
+      margin-right: 8px;
+      color: $primary;
+    }
+  }
+}
