@@ -30,7 +30,7 @@ export class ApplicationErrorHandler extends ErrorHandler {
       } else if (error.errorCode) {
         this.handleBackendError(error);
       } else {
-        this.handleDefaultError(error);
+        this.handleDefaultError(responseError);
       }
     });
   }
