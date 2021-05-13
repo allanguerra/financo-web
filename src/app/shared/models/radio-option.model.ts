@@ -1,4 +1,4 @@
 export class RadioOption {
   label: string;
-  value: string;
+  value: string | number | boolean;
 }
