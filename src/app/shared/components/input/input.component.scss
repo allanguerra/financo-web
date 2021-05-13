@@ -67,9 +67,15 @@
     }
   }
 
+  & ::ng-deep p-calendar, & ::ng-deep app-input-colors {
+    width: 100%;
+  }
+
   & ::ng-deep .input-control {
     padding: 12px;
     font-size: $mob_label;
+
+    width: 100%;
 
     border: 1px solid $primary;
     border-radius: 8px;
@@ -88,6 +94,8 @@
     display: flex;
     align-items: center;
 
+    width: 100%;
+
     i {
       padding: 4px;
       margin-left: 16px;
@@ -97,6 +105,48 @@
 
       font-size: 16px;
       color: $primary_d2
+    }
+
+    &-icon {
+      padding: 12px;
+      padding-right: 1;
+      margin-right: -1px;
+
+      font-size: $mob_label;
+      color: $primary;
+
+      border: 1px solid $primary;
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+      
+
+      background: rgba($color: $grayscale_0, $alpha: 0.65);
+
+      outline: none;
+
+      i {
+        display: flex;
+        align-items: center;
+
+        padding: 0;
+        margin: -2px 0;
+
+        font-size: $mob_h2;
+        color: $primary;
+      }
+
+      @media #{$large-and-up} {
+        font-size: $dsk_label;
+
+        i {
+          margin: 1px 0 0 0;
+        }
+      }
+
+      &+.input-control {
+        border-left: none;
+        border-radius: 0 8px 8px 0;
+      }
     }
   }
 
@@ -109,6 +159,67 @@
 
     @media #{$large-and-up} {
       font-size: $dsk_label;
+    }
+  }
+
+  &.checkbox {
+
+    & .input-label {
+      display: none;
+    }
+
+    & ::ng-deep .input-control {
+      height: 18px;
+      width: 0;
+      visibility: hidden;
+
+      &:checked {
+        &+.input-checkbox-label {
+          &::after {
+            content: '\f00c';
+            font-family: 'Fontawesome';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: 8px;
+
+            width: 16px;
+            height: 16px;
+
+            background: $grayscale_0;
+
+            border: 1px solid $primary;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+
+    & ::ng-deep .input-checkbox-label {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      font-size: $mob_label;
+
+      &::after {
+        content: '';
+        display: block;
+        margin-right: 8px;
+
+        width: 16px;
+        height: 16px;
+
+        background: $grayscale_0;
+
+        border: 1px solid $primary;
+        border-radius: 4px;
+      }
+
+      @media #{$large-and-up} {
+        font-size: $dsk_label;
+      }
     }
   }
 

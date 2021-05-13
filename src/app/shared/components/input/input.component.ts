@@ -9,7 +9,8 @@ import { FormControl } from '@angular/forms';
 export class InputComponent implements OnInit {
 
   @Input('label')  public label: string;
-  @Input('control') control: FormControl;
+  @Input('control') public control: FormControl;
+  @Input('type') public type: string = 'default';
   @Input('dark') public dark: boolean = false;
   @Input('tooltip') public tooltip: string;
 

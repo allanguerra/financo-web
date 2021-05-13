@@ -1,4 +1,4 @@
-<div class="input" [ngClass]="{'error': hasError(), 'dark': dark}">
+<div class="input" [ngClass]="{'error': hasError(), 'dark': dark}" [class]="type">
 
   <div class="input-label">
     <label for="input" class="input-label_text">{{label}}</label>
@@ -6,7 +6,9 @@
           [attr.data-text]="tooltip"><i class="fas fa-info-circle"></i></span>
   </div>
 
-  <ng-content></ng-content>
+  <div class="input_content">
+    <ng-content></ng-content>
+  </div>
 
   <span class="input-error">{{getMessage()}}</span>
 </div>
