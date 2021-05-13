@@ -1,11 +1,10 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Injector, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
 
 import { SIZES } from '@src/app/utils/consts';
 
-@Component({ template: '' })
 export abstract class BaseJoinComponent implements OnInit {
 
   public modelForm: FormGroup;

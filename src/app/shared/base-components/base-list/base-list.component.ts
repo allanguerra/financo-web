@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Injector, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseListService } from '@src/app/shared/base-services/base-list-service/base-list.service';
 import { BaseModel } from '@src/app/shared/models/base.model';
@@ -6,7 +6,6 @@ import { MessagesService } from '@src/app/shared/services/messages-service/messa
 import { ModalService } from '@src/app/shared/services/modal-service/modal.service';
 import { Messages } from '@src/app/utils/messages';
 
-@Component({ template: '' })
 export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   public isLoading: boolean = false;
   public title: string;
