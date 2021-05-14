@@ -22,7 +22,8 @@ export const api = {
   },
   categories: {
     base: `${BASE_URL}/board/:boardId/categories`,
-    getByExpense: `${BASE_URL}/board/:boardId/categories/type/expense`
+    getByExpense: `${BASE_URL}/board/:boardId/categories/type/expense`,
+    getByRevenue: `${BASE_URL}/board/:boardId/categories/type/revenue`
   },
   expenses: {
     base: `${BASE_URL}/board/:boardId/expenses`
