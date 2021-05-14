@@ -9,8 +9,7 @@ import { MASK } from '@src/app/utils/consts';
 
 @Component({
   selector: 'app-expenses-form',
-  templateUrl: './expenses-form.component.html',
-  styleUrls: ['./expenses-form.component.scss']
+  templateUrl: './expenses-form.component.html'
 })
 export class ExpensesFormComponent extends BaseFormComponent<Expense> implements OnInit {
 
