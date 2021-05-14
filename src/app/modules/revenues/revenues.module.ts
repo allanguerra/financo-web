@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '@src/app/shared/shared.module';
 import { RevenuesRoutingModule } from './revenues-routing.module';
 import { RevenuesFormComponent } from './components/revenues-form/revenues-form.component';
 
@@ -8,7 +8,7 @@ import { RevenuesFormComponent } from './components/revenues-form/revenues-form.
 @NgModule({
   declarations: [RevenuesFormComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     RevenuesRoutingModule
   ]
 })

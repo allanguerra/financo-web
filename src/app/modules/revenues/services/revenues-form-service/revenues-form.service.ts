@@ -27,7 +27,7 @@ export class RevenuesFormService extends BaseFormService<Revenue> {
     if (!boardId) {
       return throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
     }
-    return this.http.get<Array<Category>>(`${api.categories.getByExpense.replace(':boardId', boardId)}`)
+    return this.http.get<Array<Category>>(`${api.categories.getByRevenue.replace(':boardId', boardId)}`)
       .pipe(
         map(this.categoriesToModelArray)
       );

@@ -62,6 +62,10 @@ export abstract class BaseFormComponent<T extends BaseModel> {
       this.title = 'Lançar Despesa';
     } else if (this.pageModule === 'expenses' && this.currentAction === 'edit') {
       this.title = 'Editar Despesa';
+    } else if (this.pageModule === 'revenues' && this.currentAction === 'new') {
+      this.title = 'Lançar Receita';
+    } else if (this.pageModule === 'revenues' && this.currentAction === 'edit') {
+      this.title = 'Editar Receita';
     }
   }
 

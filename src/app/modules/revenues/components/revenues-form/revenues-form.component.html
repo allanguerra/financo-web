@@ -1,1 +1,85 @@
-<p>revenues-form works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="form" *ngIf="!isLoading">
+  
+  <div class="form_back">
+    <app-button routerLink="/home"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="form_header">
+    <div class="form_header-title">
+      <h2>{{title}}</h2>
+    </div>
+  </div>
+
+  <div class="form_content">
+    <form [formGroup]="modelForm" (ngSubmit)="submit()">
+      <app-input label="Título *" [control]="modelForm.get('title')">
+        <input class="input-control" type="text" id="title" 
+               formControlName="title" placeholder="Título do lançamento">
+      </app-input>
+
+      <app-input label="Descrição" [control]="modelForm.get('description')">
+        <input class="input-control" type="text" id="description" 
+               formControlName="description" placeholder="Descrição do lançamento">
+      </app-input>
+
+      <div class="input-group">
+        <app-input label="Valor *" [control]="modelForm.get('value')">
+          <div class="input_content-icon">R$</div>
+          <input class="input-control" type="text" id="value" 
+                formControlName="value" [imask]="currency" [unmask]="'typed'" placeholder="Valor">
+        </app-input>
+  
+        <app-input label="Categoria *" [control]="modelForm.get('category')">
+          <select class="input-control" name="category" id="category" formControlName="category">
+            <option value="null">Selecione</option>
+            <option *ngFor="let category of categories" [value]="category?._id">{{category?.name}}</option>
+          </select>
+        </app-input>      
+      </div>
+
+      <app-input label="Vencimento *" [control]="modelForm.get('expirationDate')">
+        <div class="input_content-icon"><i class="far fa-calendar-alt"></i></div>
+        <p-calendar id="date" formControlName="expirationDate"
+            inputStyleClass="input-control" dataType="date" dateFormat="dd/mm/yy" showButtonBar="true"></p-calendar>
+      </app-input>
+
+      <app-input label="Status *" [control]="modelForm.get('paymentStatus')">
+        <app-input-radio
+          [options]="statusOptions"
+          [control]="modelForm.get('paymentStatus')"
+          (setValue)="setStatusValue($event)"></app-input-radio>
+      </app-input>
+
+      <app-input [control]="modelForm.get('recurrent')" type="checkbox">
+        <input class="input-control" type="checkbox" id="recurrent" 
+               formControlName="recurrent">
+        <label class="input-checkbox-label" for="recurrent">Repetir esse lançamento mensalmente?</label>
+      </app-input>
+
+      <app-input label="Repetir por quanto tempo?"
+        *ngIf="modelForm.get('recurrent').value">
+        <div class="input-radio-circle">
+          <span class="input-radio-circle_option"
+            [ngClass]="{'active': !recurrentRadio.value}"
+            (click)="setRecurrentRadio(false)">Tempo indefinido</span>
+          <span class="input-radio-circle_option"
+            [ngClass]="{'active': recurrentRadio.value}"
+            (click)="setRecurrentRadio(true)">
+              meses
+            <input class="input-control input-on-radio w_25" type="text" id="recurrentTimes" 
+              formControlName="recurrentTimes" [imask]="integer" [unmask]="'typed'">
+              Por
+          </span>
+        </div>
+      </app-input>
+
+      <app-button text="salvar" type="submit" 
+        [disabled]="modelForm.invalid || isSubmiting"></app-button>
+    </form>
+  </div>
+
+</section>
