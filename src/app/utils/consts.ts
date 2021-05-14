@@ -10,3 +10,20 @@ export const SESSION = {
   TOKEN: 'financo-token',
   ACTIVE_BOARD: 'active-board'
 };
+
+export const MASK = {
+  CURRENCY: {
+    mask: Number,
+    scale: 2,
+    thousandsSeparator: '.',
+    padFractionalZeros: true,
+    NormalizeZeros: true,
+    radix: ',',
+    mapToRadix: ['.']
+  },
+  INTEGER: {
+    mask: Number,
+    scale: 0,
+    min: 0
+  }
+};

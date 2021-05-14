@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { IMaskModule } from 'angular-imask';
+import { CalendarModule } from 'primeng/calendar';
+
 import { InputComponent } from '@src/app/shared/components/input/input.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MainComponent } from '@src/app/shared/components/main/main.component';
@@ -15,6 +18,7 @@ import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.com
 import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
 import { InputRadioComponent } from '@src/app/shared/components/input-radio/input-radio.component';
 import { InputColorsComponent } from '@src/app/shared/components/input-colors/input-colors.component';
+import { InputRadioCircleComponent } from '@src/app/shared/components/input-radio-circle/input-radio-circle.component';
 
 @NgModule({
   declarations: [
@@ -29,18 +33,23 @@ import { InputColorsComponent } from '@src/app/shared/components/input-colors/in
     LoadderComponent,
     ConfirmModalComponent,
     InputRadioComponent,
-    InputColorsComponent
+    InputColorsComponent,
+    InputRadioCircleComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    CalendarModule,
+    IMaskModule
   ],
   exports: [
     // MODULES
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+    CalendarModule,
+    IMaskModule,
     // COMPONENTS
     InputComponent,
     ButtonComponent,
@@ -48,7 +57,12 @@ import { InputColorsComponent } from '@src/app/shared/components/input-colors/in
     SnackbarComponent,
     LoadderComponent,
     InputRadioComponent,
-    InputColorsComponent
+    InputColorsComponent,
+    InputRadioCircleComponent
+  ],
+  entryComponents: [
+    FabModalComponent,
+    ConfirmModalComponent
   ]
 })
 export class SharedModule { }

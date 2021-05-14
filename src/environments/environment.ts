@@ -21,6 +21,10 @@ export const api = {
     getAll: `${BASE_URL}/boards`
   },
   categories: {
-    base: `${BASE_URL}/board/:boardId/categories`
+    base: `${BASE_URL}/board/:boardId/categories`,
+    getByExpense: `${BASE_URL}/board/:boardId/categories/type/expense`
+  },
+  expenses: {
+    base: `${BASE_URL}/board/:boardId/expenses`
   }
 };

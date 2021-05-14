@@ -57,7 +57,11 @@ export abstract class BaseFormComponent<T extends BaseModel> {
     if (this.pageModule === 'categories' && this.currentAction === 'new') {
       this.title = 'Nova Categoria';
     } else if (this.pageModule === 'categories' && this.currentAction === 'edit') {
-      this.title = 'Editando Categoria';
+      this.title = 'Editar Categoria';
+    } else if (this.pageModule === 'expenses' && this.currentAction === 'new') {
+      this.title = 'Lançar Despesa';
+    } else if (this.pageModule === 'expenses' && this.currentAction === 'edit') {
+      this.title = 'Editar Despesa';
     }
   }
 
@@ -79,7 +83,6 @@ export abstract class BaseFormComponent<T extends BaseModel> {
   protected storeResource(): void {
     if (this.modelForm.valid) {
       const model: T = this.dataToModelFn(this.modelForm.value);
-
       this.service.store(model).subscribe({
         next: () => {
           this.modelForm.reset();
