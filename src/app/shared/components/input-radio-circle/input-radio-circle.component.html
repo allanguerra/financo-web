@@ -1,0 +1,6 @@
+<div class="input-radio-circle">
+  <span class="input-radio-circle_option"
+    *ngFor="let option of options"
+    [ngClass]="{'active': option?.value === control?.value}"
+    (click)="changeValue(option?.value)">{{option?.label}}</span>
+</div>
