@@ -1,0 +1,19 @@
+<section class="home">
+  
+  <div class="home_tabs">
+    <div class="home_tabs-tab">
+      <span class="home_tabs-tab-name">Dashboard</span>
+    </div>
+    <div class="home_tabs-tab" routerLink="list/revenues" routerLinkActive="active">
+      <span class="home_tabs-tab-name">Receitas</span>
+    </div>
+    <div class="home_tabs-tab">
+      <span class="home_tabs-tab-name">Despesas</span>
+    </div>
+  </div>
+
+  <div class="home_content">
+    <router-outlet></router-outlet>
+  </div>
+
+</section>

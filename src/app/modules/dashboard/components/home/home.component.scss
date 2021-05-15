@@ -1,0 +1,73 @@
+@import '../../../../../style/utils/utils';
+
+.home {
+  position: absolute;
+
+  padding: 24px 0;
+  width: 100%;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  &_tabs {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $grayscale_300;
+
+    display: flex;
+    justify-content: space-around;
+
+    &-tab {
+      height: 100%;
+      width: 100%;
+
+      text-align: center;
+
+      font-weight: $font_light;
+
+      cursor: pointer;
+
+      &.active {
+        font-weight: $font_bold;
+        color: $primary;
+
+        &::after {
+          content: '';
+          display: block;
+
+          position: relative;
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          height: 4px;
+
+          margin-top: 8px;
+
+          background: $primary;
+          border-radius: 4px 4px 0 0;
+        }
+      }
+    }
+  }
+
+  &_content {
+    padding: 0 16px;
+  }
+
+  @media #{$medium_and_up} {
+    width: calc(80% - #{$main_md_left});
+
+    &_tabs {
+      margin-top: 32px;
+    }
+
+    &_content {
+      padding: 0;
+    }
+  }
+
+  @media #{$large_and_up} {
+    width: calc(60% - #{$main_md_left});
+  }
+}
