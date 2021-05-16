@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injector } from '@angular/core';
 import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { BaseModel } from '@src/app/shared/models/base.model';
@@ -20,12 +20,15 @@ export abstract class BaseListService<T extends BaseModel> {
     this.boardsService = injector.get(BoardsService);
   }
 
-  public getAll(): Observable<Array<T>> {
+  public getAll(urlParams?: Record<string, string>): Observable<Array<T>> {
     const boardId = this.boardsService.getActiveBoard();
     if (!boardId) {
       return throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
     }
-    return this.http.get<Array<T>>(`${this.apiPath.replace(':boardId', boardId)}`)
+
+    const params = new HttpParams(urlParams);
+
+    return this.http.get<Array<T>>(`${this.apiPath.replace(':boardId', boardId)}`, { params })
       .pipe(
         map(this.dataToModelArray.bind(this))
       );

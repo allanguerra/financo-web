@@ -26,7 +26,8 @@ export const api = {
     getByRevenue: `${BASE_URL}/board/:boardId/categories/type/revenue`
   },
   expenses: {
-    base: `${BASE_URL}/board/:boardId/expenses`
+    base: `${BASE_URL}/board/:boardId/expenses`,
+    balance: `${BASE_URL}/board/:boardId/balance/expenses`
   },
   revenues: {
     base: `${BASE_URL}/board/:boardId/revenues`
