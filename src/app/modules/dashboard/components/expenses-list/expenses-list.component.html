@@ -1,1 +1,46 @@
-<p>expenses-list works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="balance" *ngIf="!isLoading">
+
+  <div class="balance_header no-margin-top">
+
+    <div class="card no-border column">
+
+      <div class="card_header">
+        <div class="card_header-title">
+          <h2 class="card_header-title">Despesas <span>({{currentDate | date:'MMMM/yyyy'}})</span></h2>
+          <p class="card_header-label">
+            {{isVisible ? (balance?.monthTotal | currency:'BRL') : 'R$ -,--'}}
+          </p>
+        </div>
+        <div class="card_header-icon" (click)="toggleVisible()">
+          <i class="fas" [ngClass]="visibleClass"></i>
+        </div>
+      </div>
+
+      <div class="card_content_border"
+        *ngFor="let total of balance?.totalByCategory"
+        [style.border-left-color]="total?.category.color">
+        <h4 class="card_content_border-title" >
+          {{total?.category.name}}
+        </h4>
+        <span class="card_content_border-label">
+          {{isVisible ? (total?.total | currency:'BRL') : 'R$ -,--'}}
+        </span>        
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="balance_content">
+
+    <app-entry-card *ngFor="let expense of balance?.monthExpenses"
+      [entry]="expense"
+      base-route="/home/expenses/edit"
+      [isVisible]="isVisible"
+      (remove)="remove($event)"></app-entry-card>
+
+  </div>
+
+</section>

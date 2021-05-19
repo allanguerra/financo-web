@@ -20,15 +20,12 @@ export abstract class BaseListService<T extends BaseModel> {
     this.boardsService = injector.get(BoardsService);
   }
 
-  public getAll(urlParams?: Record<string, string>): Observable<Array<T>> {
+  public getAll(params?: Record<any, any>): Observable<Array<T>> {
     const boardId = this.boardsService.getActiveBoard();
     if (!boardId) {
       return throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
     }
-
-    const params = new HttpParams(urlParams);
-
-    return this.http.get<Array<T>>(`${this.apiPath.replace(':boardId', boardId)}`, { params })
+    return this.http.get<Array<T>>(`${this.apiPath.replace(':boardId', boardId)}?${new URLSearchParams(params)}`)
       .pipe(
         map(this.dataToModelArray.bind(this))
       );
