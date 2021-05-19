@@ -7,6 +7,7 @@ import { HomeComponent } from '@src/app/modules/dashboard/components/home/home.c
 import { RevenuesListComponent } from '@src/app/modules/dashboard/components/revenues-list/revenues-list.component';
 import { ExpensesListComponent } from '@src/app/modules/dashboard/components/expenses-list/expenses-list.component';
 import { DashboardComponent } from '@src/app/modules/dashboard/components/dashboard/dashboard.component';
+import { EntryCardComponent } from '@src/app/modules/dashboard/components/entry-card/entry-card.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DashboardComponent } from '@src/app/modules/dashboard/components/dashbo
     HomeComponent,
     RevenuesListComponent,
     ExpensesListComponent,
-    DashboardComponent
+    DashboardComponent,
+    EntryCardComponent
   ],
   imports: [
     SharedModule,

@@ -1,0 +1,20 @@
+<div class="card" [style.border-left-color]="entry?.category.color">
+
+  <div class="card_content">
+    <h4 class="card_content-title">{{entry?.title}}</h4>
+    <span class="card_content-text"><small>{{entry?.description ? entry?.description : '-'}}</small></span>
+    <span class="card_content-info">
+      <div class="card_content-info-value">{{isVisible ? (entry?.value | currency:'BRL') : 'R$ -,--'}}</div>
+      <div class="card_content-info-date">{{entry?.createdAt | date:'dd/MM/yyyy'}}</div>
+    </span>
+  </div>
+
+  <div class="card_actions">
+    <i class="fas fa-ellipsis-v" (click)="toggleShowMenu()"></i>
+    <div class="card_actions-menu" [ngClass]="{'show': showMenu}">
+      <i class="fas fa-cog" [routerLink]="[baseRoute, entry?._id]"></i>
+      <i class="fas fa-trash" (click)="removeExpense()"></i>
+    </div>
+  </div>
+
+</div>
