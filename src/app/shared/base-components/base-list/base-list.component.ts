@@ -36,6 +36,8 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
     const page = this.route.snapshot.parent.url[0].path;
     if (page === 'categories') {
       this.title = 'Suas Categorias';
+    } else if (page === 'boards') {
+      this.title = 'Seus Boards';
     } else {
       this.title = 'Lista';
     }
