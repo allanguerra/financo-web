@@ -23,8 +23,8 @@
   <div class="card_actions">
     <i class="fas fa-ellipsis-v" (click)="toggleShowMenu()"></i>
     <div class="card_actions-menu" [ngClass]="{'show': showMenu}">
-      <i class="fas fa-share" [routerLink]="['/home/bords/share', board?._id]"></i>
-      <i class="fas fa-cog" [routerLink]="['/home/bords/edit', board?._id]"></i>
+      <i class="fas fa-share" [routerLink]="['/home/boards/share', board?._id]"></i>
+      <i class="fas fa-cog" [routerLink]="['/home/boards/edit', board?._id]"></i>
       <!-- <i class="fas fa-trash" (click)="removeBoard()"></i> -->
     </div>
   </div>

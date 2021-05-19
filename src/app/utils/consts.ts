@@ -25,5 +25,11 @@ export const MASK = {
     mask: Number,
     scale: 0,
     min: 0
+  },
+  EXPIRATION_DAY: {
+    mask: Number,
+    scale: 0,
+    min: 1,
+    max: 28
   }
 };

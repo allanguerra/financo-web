@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Category } from '@src/app/modules/categories/models/category.model';
 import { CategoriesFormService } from '@src/app/modules/categories/services/categories-form-service/categories-form.service';

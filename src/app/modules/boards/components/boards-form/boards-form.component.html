@@ -1,1 +1,41 @@
-<p>boards-form works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="form" *ngIf="!isLoading">
+  
+  <div class="form_back">
+    <app-button routerLink="/home/boards"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="form_header">
+    <div class="form_header-title">
+      <h2>{{title}}</h2>
+    </div>
+  </div>
+
+  <div class="form_content">
+    <form [formGroup]="modelForm" (ngSubmit)="submit()">
+      <div class="input-group quarter">
+        <app-input label="Título *" [control]="modelForm.get('title')">
+          <input class="input-control" type="text" id="title" 
+                 formControlName="title" placeholder="Título do board">
+        </app-input>
+
+        <app-input label="Dia de vencimento *" [control]="modelForm.get('expirationDay')">
+          <input class="input-control" type="text" id="expirationDay"
+                 formControlName="expirationDay" [imask]="expirationDayMask" [unmask]="'typed'">
+        </app-input>
+      </div>
+
+      <app-input label="Descrição" [control]="modelForm.get('description')">
+        <input class="input-control" type="text" id="description" 
+               formControlName="description" placeholder="Descrição do board">
+      </app-input>
+
+      <app-button text="salvar" type="submit" 
+        [disabled]="modelForm.invalid || isSubmiting"></app-button>
+    </form>
+  </div>
+
+</section>
