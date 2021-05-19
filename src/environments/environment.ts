@@ -30,6 +30,7 @@ export const api = {
     balance: `${BASE_URL}/board/:boardId/balance/expenses`
   },
   revenues: {
-    base: `${BASE_URL}/board/:boardId/revenues`
+    base: `${BASE_URL}/board/:boardId/revenues`,
+    balance: `${BASE_URL}/board/:boardId/balance/revenues`
   }
 };
