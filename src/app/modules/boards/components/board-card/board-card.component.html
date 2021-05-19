@@ -1,0 +1,32 @@
+<div class="card no-border">
+
+  <div class="card_content">
+
+    <h4 class="card_content-title">{{board?.title}}</h4>
+    <span class="card_content-text"><small>Vence dia: {{board?.expirationDay}}</small></span>
+    <span class="card_content-text md gray-text">{{board?.description}}</span>
+    
+    <div class="card_content_shared" *ngIf="board?.sharedUsers.lenght > 0">
+      <div class="card_content_shared-with">
+        <span>Compartilhado com:</span>
+        <ul>
+          <li *ngFor="let sharedUser of board?.sharedUsers">
+            <span>{{sharedUser}}</span>
+            <i class="fas fa-times" (click)="unshare(sharedUser)"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card_actions">
+    <i class="fas fa-ellipsis-v" (click)="toggleShowMenu()"></i>
+    <div class="card_actions-menu" [ngClass]="{'show': showMenu}">
+      <i class="fas fa-share" [routerLink]="['/home/bords/share', board?._id]"></i>
+      <i class="fas fa-cog" [routerLink]="['/home/bords/edit', board?._id]"></i>
+      <!-- <i class="fas fa-trash" (click)="removeBoard()"></i> -->
+    </div>
+  </div>
+
+</div>
