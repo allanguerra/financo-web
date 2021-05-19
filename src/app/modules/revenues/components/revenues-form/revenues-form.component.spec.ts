@@ -88,8 +88,6 @@ describe('RevenuesFormComponent', () => {
     component.modelForm.get('title').setValue('any_title');
     component.modelForm.get('category').setValue('any_category');
     component.modelForm.get('value').setValue(10);
-    component.modelForm.get('paymentStatus').setValue('paid');
-    component.modelForm.get('expirationDate').setValue(now);
     component.modelForm.get('recurrent').setValue(false);
     fixture.detectChanges();
 
@@ -105,8 +103,6 @@ describe('RevenuesFormComponent', () => {
       description: null,
       category: 'any_category',
       value: 10,
-      paymentStatus: 'paid',
-      expirationDate: now,
       recurrent: false,
       recurrentTimes: null
     });

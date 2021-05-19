@@ -46,10 +46,6 @@ export class RevenuesFormComponent extends BaseFormComponent<Revenue> implements
     this.getCategories();
   }
 
-  public setStatusValue(value: string): void  {
-    this.modelForm.get('paymentStatus').setValue(value);
-  }
-
   public setRecurrentRadio(value: string): void {
     this.recurrentRadio.setValue(value);
   }
@@ -63,8 +59,6 @@ export class RevenuesFormComponent extends BaseFormComponent<Revenue> implements
       description: [null],
       category: [null, [Validators.required]],
       value: [null, [Validators.required]],
-      paymentStatus: [null, [Validators.required]],
-      expirationDate: [null, [Validators.required]],
       recurrent: [false, [Validators.required]],
       recurrentTimes: [null]
     });

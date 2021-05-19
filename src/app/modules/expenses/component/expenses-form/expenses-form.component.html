@@ -41,19 +41,6 @@
         </app-input>      
       </div>
 
-      <app-input label="Vencimento *" [control]="modelForm.get('expirationDate')">
-        <div class="input_content-icon"><i class="far fa-calendar-alt"></i></div>
-        <p-calendar id="date" formControlName="expirationDate"
-            inputStyleClass="input-control" dataType="date" dateFormat="dd/mm/yy" showButtonBar="true"></p-calendar>
-      </app-input>
-
-      <app-input label="Status *" [control]="modelForm.get('paymentStatus')">
-        <app-input-radio
-          [options]="statusOptions"
-          [control]="modelForm.get('paymentStatus')"
-          (setValue)="setStatusValue($event)"></app-input-radio>
-      </app-input>
-
       <app-input [control]="modelForm.get('recurrent')" type="checkbox">
         <input class="input-control" type="checkbox" id="recurrent" 
                formControlName="recurrent">

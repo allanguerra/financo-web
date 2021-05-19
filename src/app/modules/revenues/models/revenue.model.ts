@@ -5,12 +5,11 @@ export class Revenue extends BaseModel {
   constructor(
     public title?: string,
     public description?: string,
-    public expirationDate?: string,
-    public paymentStatus?: string,
     public value?: number,
     public recurrent?: boolean,
     public recurrentTimes?: number,
-    public category?: Category
+    public category?: Category,
+    public createdAt?: Date
   ) {
     super();
   }

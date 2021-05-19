@@ -21,10 +21,6 @@ export class CategoryCardComponent {
     this.showMenu = !this.showMenu;
   }
 
-  public editCategory(): void {
-    return;
-  }
-
   public removeCategory(): void {
     this.remove.emit(this.category);
   }
