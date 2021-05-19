@@ -52,13 +52,13 @@ describe('BaseModelService', () => {
     service.getAll().subscribe({
       next: (_: Array<any>) => {
         expect(httpSpy).toHaveBeenCalledTimes(1);
-        expect(httpSpy).toHaveBeenCalledWith('http://localhost:3000/any_base_route/any_board_id');
+        expect(httpSpy).toHaveBeenCalledWith('http://localhost:3000/any_base_route/any_board_id?');
         done();
       },
       error: () => done.fail()
     });
 
-    httpMock.expectOne('http://localhost:3000/any_base_route/any_board_id')
+    httpMock.expectOne('http://localhost:3000/any_base_route/any_board_id?')
       .flush([], { status: 200, statusText: 'ok' });
   });
 
