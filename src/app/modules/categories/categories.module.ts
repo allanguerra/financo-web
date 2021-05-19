@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CategoriesRoutingModule } from '@src/app/modules/categories/categories-routing.module';
 import { CategoriesListComponent } from '@src/app/modules/categories/components/categories-list/categories-list.component';
@@ -14,7 +13,6 @@ import { CategoriesFormComponent } from '@src/app/modules/categories/components/
     CategoriesFormComponent
   ],
   imports: [
-    CommonModule,
     CategoriesRoutingModule,
     SharedModule
   ]

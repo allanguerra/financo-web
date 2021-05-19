@@ -18,7 +18,8 @@ export const api = {
     get: `${BASE_URL}/users`
   },
   boards: {
-    getAll: `${BASE_URL}/boards`
+    getAll: `${BASE_URL}/boards`,
+    base: `${BASE_URL}/boards`
   },
   categories: {
     base: `${BASE_URL}/board/:boardId/categories`,
