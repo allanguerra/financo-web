@@ -4,9 +4,10 @@ import { SharedModule } from '@src/app/shared/shared.module';
 
 import { BoardsListComponent } from '@src/app/modules/boards/components/boards-list/boards-list.component';
 import { BoardCardComponent } from '@src/app/modules/boards/components/board-card/board-card.component';
+import { BoardsFormComponent } from './components/boards-form/boards-form.component';
 
 @NgModule({
-  declarations: [BoardsListComponent, BoardCardComponent],
+  declarations: [BoardsListComponent, BoardCardComponent, BoardsFormComponent],
   imports: [
     BoardsRoutingModule,
     SharedModule,
