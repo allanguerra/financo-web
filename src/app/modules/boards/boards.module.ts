@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'primeng/api';
+import { BoardsRoutingModule } from '@src/app/modules/boards/boards-routing.module';
 
-
+import { BoardsListComponent } from './components/boards-list/boards-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [BoardsListComponent],
   imports: [
-    CommonModule
+    BoardsRoutingModule,
+    SharedModule,
   ]
 })
 export class BoardsModule { }
