@@ -44,13 +44,13 @@ describe('DashboardService', () => {
     service.getDashboard().subscribe({
       next: (_: Array<any>) => {
         expect(httpSpy).toHaveBeenCalledTimes(1);
-        expect(httpSpy).toHaveBeenCalledWith('http://localhost:3000/v1/board/any_board_id/dashboard');
+        expect(httpSpy).toHaveBeenCalledWith('http://localhost:3000/v1/board/any_board_id/dashboard?');
         done();
       },
       error: () => done.fail()
     });
 
-    httpMock.expectOne('http://localhost:3000/v1/board/any_board_id/dashboard')
+    httpMock.expectOne('http://localhost:3000/v1/board/any_board_id/dashboard?')
       .flush({}, { status: 200, statusText: 'ok' });
   });
 });
