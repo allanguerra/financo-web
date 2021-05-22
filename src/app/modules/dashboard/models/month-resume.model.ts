@@ -1,8 +1,8 @@
 export class MonthResume {
   constructor(
-    onWallet?: number,
-    revenues?: number,
-    expenses?: number,
+    public onWallet?: number,
+    public revenues?: number,
+    public expenses?: number,
   ) {}
 
   // STATIC METHODS

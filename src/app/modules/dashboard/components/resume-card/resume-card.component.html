@@ -1,0 +1,36 @@
+<div class="card no-border column">
+  
+  <div class="card-wallet">
+    <div class="card-wallet_icon">
+      <i class="fas fa-wallet"></i>
+    </div>
+    <div class="card-wallet_content">
+      <h3 class="card-wallet_content_title">Na carteira</h3>
+      <p class="card-wallet_content_value">{{resume?.onWallet | currency:'BRL'}}</p>
+      <span class="card-wallet_content_bar-revenue">        
+        <span class="card-wallet_content_bar-expense" [style.width]="getExpensesDiff()"></span>
+      </span>
+    </div>
+  </div>
+
+  <div class="card-wallet">
+    <div class="card-wallet_icon">
+      <i class="fas fa-chart-bar"></i>
+    </div>
+    <div class="card-wallet_content">
+      <h3 class="card-wallet_content_title">Receitas</h3>
+      <p class="card-wallet_content_value">{{resume?.revenues | currency:'BRL'}}</p>
+    </div>
+  </div>
+
+  <div class="card-wallet">
+    <div class="card-wallet_icon">
+      <i class="fas fa-funnel-dollar"></i>
+    </div>
+    <div class="card-wallet_content">
+      <h3 class="card-wallet_content_title">Despesas</h3>
+      <p class="card-wallet_content_value">{{resume?.expenses | currency:'BRL'}}</p>
+    </div>
+  </div>
+
+</div>

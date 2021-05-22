@@ -8,6 +8,7 @@ import { RevenuesListComponent } from '@src/app/modules/dashboard/components/rev
 import { ExpensesListComponent } from '@src/app/modules/dashboard/components/expenses-list/expenses-list.component';
 import { DashboardComponent } from '@src/app/modules/dashboard/components/dashboard/dashboard.component';
 import { EntryCardComponent } from '@src/app/modules/dashboard/components/entry-card/entry-card.component';
+import { ResumeCardComponent } from '@src/app/modules/dashboard/components/resume-card/resume-card.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EntryCardComponent } from '@src/app/modules/dashboard/components/entry-
     RevenuesListComponent,
     ExpensesListComponent,
     DashboardComponent,
-    EntryCardComponent
+    EntryCardComponent,
+    ResumeCardComponent
   ],
   imports: [
     SharedModule,
