@@ -22,6 +22,10 @@
     flex-direction: column;
   }
 
+  &.chart {
+    justify-content: center;
+  }
+
   &_header {
     display: flex;
     flex-direction: row;

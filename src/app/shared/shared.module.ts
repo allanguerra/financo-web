@@ -63,7 +63,8 @@ import { ChartComponent } from './components/chart/chart.component';
     LoadderComponent,
     InputRadioComponent,
     InputColorsComponent,
-    InputRadioCircleComponent
+    InputRadioCircleComponent,
+    ChartComponent
   ],
   entryComponents: [
     FabModalComponent,
