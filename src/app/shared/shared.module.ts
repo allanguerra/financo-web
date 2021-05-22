@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { IMaskModule } from 'angular-imask';
 import { CalendarModule } from 'primeng/calendar';
+import { ChartModule } from 'primeng/chart';
 
 import { InputComponent } from '@src/app/shared/components/input/input.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
@@ -19,6 +20,7 @@ import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/
 import { InputRadioComponent } from '@src/app/shared/components/input-radio/input-radio.component';
 import { InputColorsComponent } from '@src/app/shared/components/input-colors/input-colors.component';
 import { InputRadioCircleComponent } from '@src/app/shared/components/input-radio-circle/input-radio-circle.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,15 @@ import { InputRadioCircleComponent } from '@src/app/shared/components/input-radi
     ConfirmModalComponent,
     InputRadioComponent,
     InputColorsComponent,
-    InputRadioCircleComponent
+    InputRadioCircleComponent,
+    ChartComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
     CalendarModule,
+    ChartModule,
     IMaskModule
   ],
   exports: [
@@ -49,6 +53,7 @@ import { InputRadioCircleComponent } from '@src/app/shared/components/input-radi
     ReactiveFormsModule,
     RouterModule,
     CalendarModule,
+    ChartModule,
     IMaskModule,
     // COMPONENTS
     InputComponent,
