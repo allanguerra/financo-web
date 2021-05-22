@@ -33,5 +33,8 @@ export const api = {
   revenues: {
     base: `${BASE_URL}/board/:boardId/revenues`,
     balance: `${BASE_URL}/board/:boardId/balance/revenues`
+  },
+  dashboard: {
+    base: `${BASE_URL}/board/:boardId/dashboard`
   }
 };
