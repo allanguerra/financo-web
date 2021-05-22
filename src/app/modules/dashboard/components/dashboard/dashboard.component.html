@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="dashboard" *ngIf="!isLoading">
+  <app-resume-card
+    [resume]="dashboard?.monthResume"></app-resume-card>
+
+  <app-chart 
+    title="Gastos por categoria"
+    [data]="dashboard?.expensesByCategory"></app-chart>
+
+  <app-chart 
+    title="Receitas por categoria"
+    [data]="dashboard?.revenuesByCategory"></app-chart>
+</section>
