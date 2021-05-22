@@ -16,11 +16,11 @@ export class DashboardService {
     private readonly boardsService: BoardsService
   ) { }
 
-  public getDashboard(): Observable<Dashboard> {
+  public getDashboard(params?: Record<any, any>): Observable<Dashboard> {
     const boardId = this.boardsService.getActiveBoard();
     if (!boardId) {
       return throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
     }
-    return this.http.get<Dashboard>(api.dashboard.base.replace(':boardId', boardId));
+    return this.http.get<Dashboard>(`${api.dashboard.base.replace(':boardId', boardId)}?${new URLSearchParams(params)}`);
   }
 }
