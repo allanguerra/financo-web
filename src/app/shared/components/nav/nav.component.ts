@@ -18,12 +18,15 @@ export class NavComponent implements OnInit {
 
   public open: boolean = false;
 
+  public activeBoardId: string = '';
+
   constructor(
     private readonly userService: UserService,
     private readonly boardsService: BoardsService
   ) { }
 
   ngOnInit(): void {
+    this.activeBoardId = this.boardsService.getActiveBoard();
     this.getUserProfile();
     this.getUserBoards();
   }
@@ -34,6 +37,7 @@ export class NavComponent implements OnInit {
 
   public changeBoard(boardId: string): void {
     this.boardsService.setActiveBoard(boardId);
+    this.toggleOpen();
   }
 
   public logout(): void {

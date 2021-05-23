@@ -1,4 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { RevenuesMonthBalance } from '@src/app/modules/dashboard/models/revenues-month-balance.model';
 import { RevenuesListService } from '@src/app/modules/dashboard/services/revenues-list-service/revenues-list.service';
 import { Revenue } from '@src/app/modules/revenues/models/revenue.model';
@@ -22,13 +23,15 @@ export class RevenuesListComponent extends BaseListComponent<Revenue> implements
 
   constructor(
     readonly injector: Injector,
-    readonly revenuesListService: RevenuesListService
+    readonly revenuesListService: RevenuesListService,
+    private readonly boardsService: BoardsService
   ) {
     super(injector, revenuesListService);
   }
 
   ngOnInit(): void {
-    this.getExpensesBalance();
+    this.getRevenuesBalance();
+    this.listenActiveBoardChanges();
   }
 
   public remove(resource: Revenue): void {
@@ -51,12 +54,12 @@ export class RevenuesListComponent extends BaseListComponent<Revenue> implements
   // PROTECTED METHODS - OVERRIDE
 
   protected getModels(): void {
-    this.getExpensesBalance();
+    this.getRevenuesBalance();
   }
 
   // PRIVATE METHODS
 
-  private getExpensesBalance(): void {
+  private getRevenuesBalance(): void {
     this.isLoading = true;
     const params = { month: this.currentDate.getMonth() + 1, year: this.currentDate.getFullYear() };
     this.revenuesListService.getMonthBalance(params).subscribe({
@@ -66,6 +69,12 @@ export class RevenuesListComponent extends BaseListComponent<Revenue> implements
           .sort((a: Revenue, b: Revenue) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
         this.isLoading = false;
       }
+    });
+  }
+
+  private listenActiveBoardChanges(): void {
+    this.boardsService.activeBoardChanges.subscribe({
+      next: (_: string) => this.getRevenuesBalance()
     });
   }
 

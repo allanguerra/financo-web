@@ -1,4 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { Category } from '@src/app/modules/categories/models/category.model';
 import { CategoriesListService } from '@src/app/modules/categories/services/categories-list-service/categories-list.service';
 import { BaseListComponent } from '@src/app/shared/base-components/base-list/base-list.component';
@@ -13,8 +14,10 @@ export class CategoriesListComponent extends BaseListComponent<Category> impleme
   constructor(
     protected readonly injector: Injector,
     readonly categoriesService: CategoriesListService,
+    private readonly boardsService: BoardsService
   ) {
     super(injector, categoriesService);
+    this.listenActiveBoardChanges();
   }
 
   ngOnInit(): void {
@@ -33,4 +36,11 @@ export class CategoriesListComponent extends BaseListComponent<Category> impleme
     });
   }
 
+  // PRIVATE METHODS
+
+  private listenActiveBoardChanges(): void {
+    this.boardsService.activeBoardChanges.subscribe({
+      next: (_: string) => this.getModels()
+    });
+  }
 }

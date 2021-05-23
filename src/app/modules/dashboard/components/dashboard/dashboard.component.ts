@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { Dashboard } from '@src/app/modules/dashboard/models/dashboard-model';
 import { DashboardService } from '@src/app/modules/dashboard/services/dashboard-service/dashboard.service';
 
@@ -16,11 +17,13 @@ export class DashboardComponent implements OnInit {
   private readonly currentDate: Date = new Date();
 
   constructor(
-    private readonly dashboardService: DashboardService
+    private readonly dashboardService: DashboardService,
+    private readonly boardsService: BoardsService
   ) { }
 
   ngOnInit(): void {
     this.getDashboard();
+    this.listenActiveBoardChanges();
   }
 
   // PRIVATE METHODS
@@ -37,4 +40,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  private listenActiveBoardChanges(): void {
+    this.boardsService.activeBoardChanges.subscribe({
+      next: (_: string) => this.getDashboard()
+    });
+  }
 }

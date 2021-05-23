@@ -1,4 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
+import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { ExpenseMonthBalance } from '@src/app/modules/dashboard/models/expense-month-balance.model';
 import { ExpensesListService } from '@src/app/modules/dashboard/services/expenses-list-service/expenses-list.service';
 import { Expense } from '@src/app/modules/expenses/models/expense.model';
@@ -22,13 +23,15 @@ export class ExpensesListComponent extends BaseListComponent<Expense> implements
 
   constructor(
     readonly injector: Injector,
-    readonly expensesListService: ExpensesListService
+    readonly expensesListService: ExpensesListService,
+    private readonly boardsService: BoardsService
   ) {
     super(injector, expensesListService);
   }
 
   ngOnInit(): void {
     this.getExpensesBalance();
+    this.listenActiveBoardChanges();
   }
 
   public remove(resource: Expense): void {
@@ -69,4 +72,9 @@ export class ExpensesListComponent extends BaseListComponent<Expense> implements
     });
   }
 
+  private listenActiveBoardChanges(): void {
+    this.boardsService.activeBoardChanges.subscribe({
+      next: (_: string) => this.getExpensesBalance()
+    });
+  }
 }

@@ -15,7 +15,7 @@
 
     <app-input label="Seus Boards" [dark]="true">
         <select class="input-control" (change)="changeBoard($event.target.value)">
-          <option *ngFor="let board of boards" [value]="board?._id">{{ board?.title }}</option>
+          <option *ngFor="let board of boards" [value]="board?._id" [selected]="board?._id === activeBoardId">{{ board?.title }}</option>
         </select>
   
         <i class="fas fa-share"></i>

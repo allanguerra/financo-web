@@ -4,11 +4,11 @@
   <app-resume-card
     [resume]="dashboard?.monthResume"></app-resume-card>
 
-  <app-chart 
+  <app-chart *ngIf="dashboard?.expensesByCategory.length > 0"
     title="Gastos por categoria"
     [data]="dashboard?.expensesByCategory"></app-chart>
 
-  <app-chart 
+  <app-chart *ngIf="dashboard?.revenuesByCategory.length > 0"
     title="Receitas por categoria"
     [data]="dashboard?.revenuesByCategory"></app-chart>
 </section>
