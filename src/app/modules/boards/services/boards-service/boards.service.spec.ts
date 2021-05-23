@@ -70,8 +70,6 @@ describe('BoardsService', () => {
   it('should notify observers when change the active board', (done) => {
     const activeBoard = 'new_active_board_id';
 
-    service.setActiveBoard(activeBoard);
-
     service.activeBoardChanges.subscribe({
       next: (boardId: string) => {
         expect(boardId).toBeTruthy();
@@ -80,5 +78,7 @@ describe('BoardsService', () => {
       },
       error: () => done.fail()
     });
+
+    service.setActiveBoard(activeBoard);
   });
 });

@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BoardsService } from '@src/app/modules/boards/services/boards-service/boards.service';
 import { CategoryCardComponent } from '@src/app/modules/categories/components/category-card/category-card.component';
 import { Category } from '@src/app/modules/categories/models/category.model';
 import { CategoriesListService } from '@src/app/modules/categories/services/categories-list-service/categories-list.service';

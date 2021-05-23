@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Board } from '@src/app/modules/boards/models/board.model';
@@ -12,7 +12,7 @@ import { SESSION } from '@src/app/utils/consts';
 })
 export class BoardsService {
 
-  public activeBoardChanges: BehaviorSubject<string> = new BehaviorSubject(null);
+  public activeBoardChanges: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private readonly http: HttpClient
@@ -34,7 +34,12 @@ export class BoardsService {
   }
 
   public setActiveBoard(boardId: string): void {
+    const activeBoard = this.getActiveBoard();
+
     sessionStorage.setItem(SESSION.ACTIVE_BOARD, boardId);
-    this.activeBoardChanges.next(boardId);
+
+    if (activeBoard && activeBoard !== boardId) {
+      this.activeBoardChanges.emit(boardId);
+    }
   }
 }

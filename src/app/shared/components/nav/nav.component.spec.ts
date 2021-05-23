@@ -108,4 +108,8 @@ class BoardsServiceMock {
       sharedUsers: []
     }]);
   }
+
+  public getActiveBoard(): string {
+    return 'any_board_id';
+  }
 }
