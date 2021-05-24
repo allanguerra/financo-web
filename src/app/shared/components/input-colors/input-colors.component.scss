@@ -1,6 +1,8 @@
 @import '../../../../style/utils/utils';
 
 .input-colors {
+  position: relative;
+  width: 100%;
 
   &_selected {
     display: flex;
@@ -33,6 +35,8 @@
   }
 
   &_options {
+    position: absolute;
+
     display: flex;
     flex-direction: column;
 
@@ -42,8 +46,10 @@
     border-radius: 8px;
 
     font-size: $mob_label;
+    background: $grayscale_0;
 
     height: 0px;
+    width: 70%;
     opacity: 0;
 
     overflow-x: hidden;
@@ -71,6 +77,17 @@
       }
     }
 
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-button, &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $primary;
+      border-radius: 4px;
+    }
+
     @media #{$large-and-up} {
       font-size: $dsk_label;
     }
@@ -87,7 +104,7 @@
     }
     
     .input-colors_options {
-      height: 100%;
+      height: 30vh;
       opacity: 1;
     }
   }
