@@ -50,5 +50,10 @@ export const Messages = {
     title: 'Ops, tivemos um problema',
     text: 'Nos desculpe, algo aconteceu durante o processamento da sua operação.',
     type: MessageType.DANGER
+  },
+  SHARED_BOARD: {
+    title: 'Board compartilhado',
+    text: 'Enviamos um email para o usuário com quem você acaba de compartilhar.',
+    type: MessageType.SUCCESS
   }
 };

@@ -1,1 +1,38 @@
-<p>share-board works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="form" *ngIf="!isLoading">
+  
+  <div class="form_back">
+    <app-button routerLink="/home"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="form_header">
+    <div class="form_header-title">
+      <h4>{{title}}</h4>
+      <h3>{{board?.title}}</h3>
+    </div>
+  </div>
+
+  <div class="form_content">
+    <form [formGroup]="modelForm" (ngSubmit)="submit()">
+      <app-input label="Compartilhar com *" [control]="modelForm.get('email')">
+        <input class="input-control" type="text" id="email" 
+               formControlName="email" placeholder="Digite o e-mail">
+      </app-input>
+
+      <app-button text="Compartilhar" type="submit" 
+        [disabled]="modelForm.invalid || isSubmiting"></app-button>
+    </form>
+  </div>
+
+  <div class="form_section" *ngIf="board?.sharedUsers.length > 0">
+    <h4 class="form_section-title">Compartilhado com:</h4>
+    <span class="form_section-text" *ngFor="let sharedUser of board?.sharedUsers">
+      {{sharedUser.email}}
+      <i class="fas fa-times" (click)="remove(sharedUser._id)"></i>
+    </span>
+  </div>
+
+</section>

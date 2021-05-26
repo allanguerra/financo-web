@@ -11,7 +11,7 @@
         <span>Compartilhado com:</span>
         <ul>
           <li *ngFor="let sharedUser of board?.sharedUsers">
-            <span>{{sharedUser}}</span>
+            <span>{{sharedUser.email}}</span>
             <i class="fas fa-times" (click)="unshare(sharedUser)"></i>
           </li>
         </ul>

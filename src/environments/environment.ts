@@ -19,7 +19,8 @@ export const api = {
   },
   boards: {
     getAll: `${BASE_URL}/boards`,
-    base: `${BASE_URL}/boards`
+    base: `${BASE_URL}/boards`,
+    share: `${BASE_URL}/boards/:boardId/share-to/:email`
   },
   categories: {
     base: `${BASE_URL}/board/:boardId/categories`,
