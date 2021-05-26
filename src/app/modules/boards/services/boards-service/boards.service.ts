@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Board } from '@src/app/modules/boards/models/board.model';
 import { api } from '@env/environment';
 import { SESSION } from '@src/app/utils/consts';
+import { Messages } from '@src/app/utils/messages';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,18 @@ export class BoardsService {
         return boards;
       })
     );
+  }
+
+  public getBoard(boardId: string): Observable<Board> {
+    return this.http.get<Board>(`${api.boards.base}/${boardId}`);
+  }
+
+  public shareBoard(shareEmail: string): Observable<void> {
+    const boardId = this.getActiveBoard();
+    if (!boardId) {
+      throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
+    }
+    return this.http.get<void>(api.boards.share.replace(':boardId', boardId).replace(':email', shareEmail));
   }
 
   public getActiveBoard(): string {
