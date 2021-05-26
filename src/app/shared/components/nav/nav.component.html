@@ -18,7 +18,7 @@
           <option *ngFor="let board of boards" [value]="board?._id" [selected]="board?._id === activeBoardId">{{ board?.title }}</option>
         </select>
   
-        <i class="fas fa-share"></i>
+        <i class="fas fa-share" (click)="toggleOpen()" (click)="shareBoard()"></i>
         <i class="fas fa-cog" (click)="toggleOpen()" routerLink="/home/boards"></i>      
     </app-input>
 

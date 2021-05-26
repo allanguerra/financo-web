@@ -29,6 +29,8 @@ describe('NavComponent', () => {
   }));
 
   beforeEach(() => {
+    jest.spyOn(Router.prototype, 'navigate').mockReturnValueOnce(null);
+
     fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
