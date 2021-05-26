@@ -34,11 +34,7 @@ export class BoardsService {
     return this.http.get<Board>(`${api.boards.base}/${boardId}`);
   }
 
-  public shareBoard(shareEmail: string): Observable<void> {
-    const boardId = this.getActiveBoard();
-    if (!boardId) {
-      throwError(Messages.ACTIVE_BOARD_NOT_FOUND);
-    }
+  public shareBoard(boardId: string, shareEmail: string): Observable<void> {
     return this.http.get<void>(api.boards.share.replace(':boardId', boardId).replace(':email', shareEmail));
   }
 
