@@ -41,6 +41,7 @@ export class AuthGuard implements CanLoad, CanActivate {
 
   private redirect(): void {
     this.ngZone.run(() => {
+      sessionStorage.removeItem(SESSION.ACTIVE_BOARD);
       this.messageService.notify(Messages.SESSION_EXPIRED);
       this.router.navigate(['/join/login']);
     });
