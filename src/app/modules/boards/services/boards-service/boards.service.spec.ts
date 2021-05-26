@@ -94,7 +94,7 @@ describe('BoardsService', () => {
   it('should share a user s board', (done) => {
     sessionStorage.setItem(SESSION.ACTIVE_BOARD, 'any_id');
 
-    service.shareBoard('email@email.com').subscribe({
+    service.shareBoard('any_id', 'email@email.com').subscribe({
       next: () => done(),
       error: () => done.fail()
     });
