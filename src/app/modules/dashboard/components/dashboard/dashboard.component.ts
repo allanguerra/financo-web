@@ -30,14 +30,16 @@ export class DashboardComponent implements OnInit {
 
   private getDashboard(): void {
     this.isLoading = true;
-    const params = { month: this.currentDate.getMonth() + 1, year: this.currentDate.getFullYear() };
+    if (this.boardsService.getActiveBoard()) {
+      const params = { month: this.currentDate.getMonth() + 1, year: this.currentDate.getFullYear() };
 
-    this.dashboardService.getDashboard(params).subscribe({
-      next: (dashboard: Dashboard) => {
-        this.dashboard = dashboard;
-        this.isLoading = false;
-      }
-    });
+      this.dashboardService.getDashboard(params).subscribe({
+        next: (dashboard: Dashboard) => {
+          this.dashboard = dashboard;
+          this.isLoading = false;
+        }
+      });
+    }
   }
 
   private listenActiveBoardChanges(): void {

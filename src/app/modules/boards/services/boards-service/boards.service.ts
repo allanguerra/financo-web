@@ -38,7 +38,7 @@ export class BoardsService {
 
     sessionStorage.setItem(SESSION.ACTIVE_BOARD, boardId);
 
-    if (activeBoard && activeBoard !== boardId) {
+    if (activeBoard !== boardId) {
       this.activeBoardChanges.emit(boardId);
     }
   }

@@ -41,6 +41,7 @@ export class UserService {
 
   public logout(): void {
     localStorage.removeItem(SESSION.TOKEN);
+    sessionStorage.removeItem(SESSION.ACTIVE_BOARD);
     this.router.navigate(['/join/login']);
   }
 
