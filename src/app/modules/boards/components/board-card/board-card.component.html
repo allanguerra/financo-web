@@ -12,7 +12,7 @@
         <ul>
           <li *ngFor="let sharedUser of board?.sharedUsers">
             <span>{{sharedUser.email}}</span>
-            <i class="fas fa-times" (click)="unshare(sharedUser)"></i>
+            <i class="fas fa-times" (click)="unshareUser(sharedUser?._id)"></i>
           </li>
         </ul>
       </div>

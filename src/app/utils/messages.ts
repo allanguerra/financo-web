@@ -55,5 +55,10 @@ export const Messages = {
     title: 'Board compartilhado',
     text: 'Enviamos um email para o usuário com quem você acaba de compartilhar.',
     type: MessageType.SUCCESS
+  },
+  UNSHARED_BOARD: {
+    title: 'Usuário removido do Board',
+    text: 'O usuário foi removido e não terá masi acesso ao Board.',
+    type: MessageType.SUCCESS
   }
 };

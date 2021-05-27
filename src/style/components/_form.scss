@@ -81,6 +81,10 @@
 
       margin-bottom: 12px;
 
+      i {
+        cursor: pointer;
+      }
+
       &:nth-last-child(1) {
         margin-bottom: 0;
       }

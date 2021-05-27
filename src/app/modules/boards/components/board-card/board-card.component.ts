@@ -13,6 +13,9 @@ export class BoardCardComponent {
   @Output()
   public remove: EventEmitter<Board> = new EventEmitter<Board>();
 
+  @Output()
+  public unshare: EventEmitter<string> = new EventEmitter<string>();
+
   public showMenu: boolean = false;
 
   constructor() { }
@@ -25,8 +28,8 @@ export class BoardCardComponent {
     this.remove.emit(this.board);
   }
 
-  public unshare(sharedUser: string): void {
-    return;
+  public unshareUser(sharedUser: string): void {
+    this.unshare.emit(sharedUser);
   }
 
 }

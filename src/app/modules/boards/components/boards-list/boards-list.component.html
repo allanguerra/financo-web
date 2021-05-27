@@ -21,7 +21,8 @@
 
     <app-board-card *ngFor="let board of resources"
       [board]="board"
-      (remove)="remove($event)"></app-board-card>
+      (remove)="remove($event)"
+      (unshare)="unshare(board._id, $event)"></app-board-card>
 
   </div>
 

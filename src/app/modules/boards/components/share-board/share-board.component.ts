@@ -49,7 +49,19 @@ export class ShareBoardComponent implements OnInit {
   }
 
   public remove(userId: string): void {
-    return;
+    if (!this.isSubmiting) {
+      this.isSubmiting = true;
+      this.boardsService.unshareBoard(this.board._id, userId)
+        .pipe(
+          finalize(() => this.isSubmiting = false)
+        )
+        .subscribe({
+          next: () => {
+            this.getBoard();
+            this.messagesService.notify(Messages.UNSHARED_BOARD);
+          }
+        });
+    }
   }
 
   // PRIVATE METHODS
