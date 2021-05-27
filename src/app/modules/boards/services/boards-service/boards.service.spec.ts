@@ -103,6 +103,18 @@ describe('BoardsService', () => {
       .flush(null, { status: 200, statusText: 'ok' });
   });
 
+  it('should unshare a user s board', (done) => {
+    sessionStorage.setItem(SESSION.ACTIVE_BOARD, 'any_id');
+
+    service.unshareBoard('any_id', 'any_shared_user_id').subscribe({
+      next: () => done(),
+      error: () => done.fail()
+    });
+
+    httpMock.expectOne('http://localhost:3000/v1/boards/any_id/unshare/any_shared_user_id')
+      .flush(null, { status: 200, statusText: 'ok' });
+  });
+
   it('should notify observers when change the active board', (done) => {
     const activeBoard = 'new_active_board_id';
 
