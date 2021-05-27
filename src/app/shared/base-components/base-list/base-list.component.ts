@@ -5,6 +5,7 @@ import { BaseModel } from '@src/app/shared/models/base.model';
 import { MessagesService } from '@src/app/shared/services/messages-service/messages.service';
 import { ModalService } from '@src/app/shared/services/modal-service/modal.service';
 import { Messages } from '@src/app/utils/messages';
+import { finalize } from 'rxjs/operators';
 
 export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   public isLoading: boolean = false;
@@ -12,9 +13,12 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
 
   public resources: Array<T> = [];
 
+  protected isSubmiting: boolean = false;
+
   protected readonly route: ActivatedRoute;
   protected readonly modalService: ModalService;
   protected readonly messagesService: MessagesService;
+
 
   constructor(
     protected readonly injector: Injector,
@@ -44,18 +48,29 @@ export abstract class BaseListComponent<T extends BaseModel> implements OnInit {
   }
 
   protected getModels(): void {
-    this.service.getAll().subscribe({
-      next: (resources: Array<T>) => this.resources = resources
-    });
+    this.service.getAll()
+      .pipe(
+        finalize(() => this.isLoading = false)
+      )
+      .subscribe({
+        next: (resources: Array<T>) => this.resources = resources
+      });
   }
 
   protected destroyResource(id: string): void {
-    this.service.destroy(id).subscribe({
-      next: () => {
-        this.messagesService.notify(Messages.RESOURCE_REMOVED);
-        this.getModels();
-      }
-    });
+    if (!this.isSubmiting) {
+      this.isSubmiting = true;
+      this.service.destroy(id)
+        .pipe(
+          finalize(() => this.isSubmiting = false)
+        )
+        .subscribe({
+          next: () => {
+            this.messagesService.notify(Messages.RESOURCE_REMOVED);
+            this.getModels();
+          }
+      });
+    }
   }
 
   // ABSTRACT METHODS

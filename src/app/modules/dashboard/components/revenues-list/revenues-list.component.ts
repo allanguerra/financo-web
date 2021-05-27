@@ -5,6 +5,7 @@ import { RevenuesListService } from '@src/app/modules/dashboard/services/revenue
 import { Revenue } from '@src/app/modules/revenues/models/revenue.model';
 import { BaseListComponent } from '@src/app/shared/base-components/base-list/base-list.component';
 import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-revenues-list',
@@ -62,14 +63,17 @@ export class RevenuesListComponent extends BaseListComponent<Revenue> implements
   private getRevenuesBalance(): void {
     this.isLoading = true;
     const params = { month: this.currentDate.getMonth() + 1, year: this.currentDate.getFullYear() };
-    this.revenuesListService.getMonthBalance(params).subscribe({
-      next: (monthBalance: RevenuesMonthBalance) => {
-        this.balance = monthBalance;
-        this.balance.monthRevenues
-          .sort((a: Revenue, b: Revenue) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
-        this.isLoading = false;
-      }
-    });
+    this.revenuesListService.getMonthBalance(params)
+      .pipe(
+        finalize(() => this.isLoading = false)
+      )
+      .subscribe({
+        next: (monthBalance: RevenuesMonthBalance) => {
+          this.balance = monthBalance;
+          this.balance.monthRevenues
+            .sort((a: Revenue, b: Revenue) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
+        }
+      });
   }
 
   private listenActiveBoardChanges(): void {

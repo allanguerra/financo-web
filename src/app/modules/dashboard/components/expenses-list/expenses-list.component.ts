@@ -5,6 +5,7 @@ import { ExpensesListService } from '@src/app/modules/dashboard/services/expense
 import { Expense } from '@src/app/modules/expenses/models/expense.model';
 import { BaseListComponent } from '@src/app/shared/base-components/base-list/base-list.component';
 import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/confirm-modal.component';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-expenses-list',
@@ -62,14 +63,17 @@ export class ExpensesListComponent extends BaseListComponent<Expense> implements
   private getExpensesBalance(): void {
     this.isLoading = true;
     const params = { month: this.currentDate.getMonth() + 1, year: this.currentDate.getFullYear() };
-    this.expensesListService.getMonthBalance(params).subscribe({
-      next: (monthBalance: ExpenseMonthBalance) => {
-        this.balance = monthBalance;
-        this.balance.monthExpenses
-          .sort((a: Expense, b: Expense) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
-        this.isLoading = false;
-      }
-    });
+    this.expensesListService.getMonthBalance(params)
+      .pipe(
+        finalize(() => this.isLoading = false)
+      )
+      .subscribe({
+        next: (monthBalance: ExpenseMonthBalance) => {
+          this.balance = monthBalance;
+          this.balance.monthExpenses
+            .sort((a: Expense, b: Expense) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf());
+        }
+      });
   }
 
   private listenActiveBoardChanges(): void {
