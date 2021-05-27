@@ -36,7 +36,7 @@ export class ShareBoardComponent implements OnInit {
 
   public submit(): void {
     this.isSubmiting = true;
-    this.boardsService.shareBoard(this.modelForm.get('email').value)
+    this.boardsService.shareBoard(this.board._id, this.modelForm.get('email').value)
       .pipe(
         finalize(() => this.isSubmiting = false)
       )

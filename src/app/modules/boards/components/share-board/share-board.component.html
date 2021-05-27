@@ -18,7 +18,7 @@
   <div class="form_content">
     <form [formGroup]="modelForm" (ngSubmit)="submit()">
       <app-input label="Compartilhar com *" [control]="modelForm.get('email')">
-        <input class="input-control" type="text" id="email" 
+        <input class="input-control" type="email" id="email"
                formControlName="email" placeholder="Digite o e-mail">
       </app-input>
 
