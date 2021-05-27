@@ -35,7 +35,11 @@ export class BoardsService {
   }
 
   public shareBoard(boardId: string, shareEmail: string): Observable<void> {
-    return this.http.get<void>(api.boards.share.replace(':boardId', boardId).replace(':email', shareEmail));
+    return this.http.patch<void>(api.boards.share.replace(':boardId', boardId).replace(':email', shareEmail), {});
+  }
+
+  public unshareBoard(boardId: string, sharedUserId: string): Observable<void> {
+    return this.http.patch<void>(api.boards.unshare.replace(':boardId', boardId).replace(':sharedUser', sharedUserId), {});
   }
 
   public getActiveBoard(): string {

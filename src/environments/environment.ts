@@ -20,7 +20,8 @@ export const api = {
   boards: {
     getAll: `${BASE_URL}/boards`,
     base: `${BASE_URL}/boards`,
-    share: `${BASE_URL}/boards/:boardId/share-to/:email`
+    share: `${BASE_URL}/boards/:boardId/share-to/:email`,
+    unshare: `${BASE_URL}/boards/:boardId/unshare/:sharedUser`
   },
   categories: {
     base: `${BASE_URL}/board/:boardId/categories`,
