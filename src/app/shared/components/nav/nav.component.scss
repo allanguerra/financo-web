@@ -84,7 +84,9 @@
         border-radius: 16px;
 
         font-size: 16px;
-        color: $primary_d2
+        color: $primary_d2;
+
+        cursor: pointer;
       }
 
       @media #{$medium-and-up} {
