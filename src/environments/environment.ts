@@ -15,7 +15,10 @@ export const api = {
     }
   },
   user: {
-    get: `${BASE_URL}/users`
+    get: `${BASE_URL}/users`,
+    profile: {
+      update: `${BASE_URL}/users/:userId/profile`
+    }
   },
   boards: {
     getAll: `${BASE_URL}/boards`,

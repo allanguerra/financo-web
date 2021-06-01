@@ -23,7 +23,7 @@ export class UserService {
   ) { }
 
   public getUserProfile(): Observable<Profile> {
-    if (!this.getPayload()) {
+    if (!this.hasUserPayload()) {
       return throwError('Sua sessão expirou, faça login novamente!');
     }
 
@@ -39,6 +39,25 @@ export class UserService {
     }
   }
 
+  public getUserId(): string {
+    if (this.hasUserPayload()) {
+      return this.payload.sub;
+    }
+  }
+
+  public updateProfile(): Observable<void> {
+    if (!this.hasUserPayload()) {
+      return throwError('Sua sessão expirou, faça login novamente!');
+    }
+    return this.http.get<User>(`${api.user.get}/${this.payload.sub}`).pipe(
+      map((user: User) => {
+        this.profile = user.profile;
+        return;
+      })
+    );
+
+  }
+
   public logout(): void {
     localStorage.removeItem(SESSION.TOKEN);
     sessionStorage.removeItem(SESSION.ACTIVE_BOARD);
@@ -47,7 +66,7 @@ export class UserService {
 
   // PRIVATE METHODS
 
-  private getPayload(): boolean {
+  private hasUserPayload(): boolean {
     const token = localStorage.getItem(SESSION.TOKEN);
 
     if (token) {
