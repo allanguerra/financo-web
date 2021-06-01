@@ -47,6 +47,12 @@ const routes: Routes = [
         loadChildren: () => import('./modules/boards/boards.module').then(module => module.BoardsModule),
         canLoad: [ AuthGuard ],
         canActivate: [ AuthGuard ]
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./modules/users/users.module').then(module => module.UsersModule),
+        canLoad: [ AuthGuard ],
+        canActivate: [ AuthGuard ]
       }
     ]
   }
