@@ -13,8 +13,6 @@ import { finalize } from 'rxjs/operators';
 })
 export class BoardsListComponent extends BaseListComponent<Board> implements OnInit {
 
-  private isSubmiting: boolean = false;
-
   constructor(
     private readonly boardsService: BoardsService,
     readonly injector: Injector,
