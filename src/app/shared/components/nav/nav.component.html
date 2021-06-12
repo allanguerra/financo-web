@@ -10,16 +10,16 @@
 
     <div class="aside_content_welcome">
       <span>Olá{{profile?.name ? ', ' + profile?.name : ''}}</span>
-      <i class="fas fa-cog" routerLink="/home/profile"></i>
+      <i class="fas fa-cog" routerLink="/home/profile" (click)="toggleOpen()"></i>
     </div>
 
     <app-input label="Seus Boards" [dark]="true">
-        <select class="input-control" (change)="changeBoard($event.target.value)">
-          <option *ngFor="let board of boards" [value]="board?._id" [selected]="board?._id === activeBoardId">{{ board?.title }}</option>
-        </select>
-  
-        <i class="fas fa-share" (click)="toggleOpen()" (click)="shareBoard()"></i>
-        <i class="fas fa-cog" (click)="toggleOpen()" routerLink="/home/boards"></i>      
+      <select class="input-control" (change)="changeBoard($event.target.value)">
+        <option *ngFor="let board of boards" [value]="board?._id" [selected]="board?._id === activeBoardId">{{ board?.title }}</option>
+      </select>
+
+      <i class="fas fa-share" (click)="toggleOpen()" (click)="shareBoard()"></i>
+      <i class="fas fa-cog" (click)="toggleOpen()" routerLink="/home/boards"></i>      
     </app-input>
 
   </div>

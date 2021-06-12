@@ -32,6 +32,7 @@ export class NavComponent implements OnInit {
     this.activeBoardId = this.boardsService.getActiveBoard();
     this.getUserProfile();
     this.getUserBoards();
+    this.listenProfileUpdate();
   }
 
   public toggleOpen(): void {
@@ -66,6 +67,14 @@ export class NavComponent implements OnInit {
     this.boardsService.getUserBoards().subscribe({
       next: (boards: Array<Board>) => {
         this.boards = boards;
+      }
+    });
+  }
+
+  private listenProfileUpdate(): void {
+    this.userService.profileUpdated.subscribe({
+      next: (profile: Profile) => {
+        this.profile = profile;
       }
     });
   }
