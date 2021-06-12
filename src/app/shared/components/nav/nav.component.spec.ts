@@ -1,4 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { EventEmitter, Output } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -92,6 +93,8 @@ describe('NavComponent', () => {
 });
 
 class UserServiceMock {
+  @Output()
+  public profileUpdated: EventEmitter<any> = new EventEmitter<any>();
   public getUserProfile(): Observable<Profile> {
     return of({ name: 'any_name', surname: 'any_surname', phone: 'any_phone', thumbanail: 'any_thumbnail' });
   }
