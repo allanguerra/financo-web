@@ -20,7 +20,8 @@ import { ConfirmModalComponent } from '@src/app/shared/components/confirm-modal/
 import { InputRadioComponent } from '@src/app/shared/components/input-radio/input-radio.component';
 import { InputColorsComponent } from '@src/app/shared/components/input-colors/input-colors.component';
 import { InputRadioCircleComponent } from '@src/app/shared/components/input-radio-circle/input-radio-circle.component';
-import { ChartComponent } from './components/chart/chart.component';
+import { ChartComponent } from '@src/app/shared/components/chart/chart.component';
+import { InputAvatarComponent } from '@src/app/shared/components/input-avatar/input-avatar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ChartComponent } from './components/chart/chart.component';
     InputRadioComponent,
     InputColorsComponent,
     InputRadioCircleComponent,
-    ChartComponent
+    ChartComponent,
+    InputAvatarComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import { ChartComponent } from './components/chart/chart.component';
     InputRadioComponent,
     InputColorsComponent,
     InputRadioCircleComponent,
-    ChartComponent
+    ChartComponent,
+    InputAvatarComponent
   ],
   entryComponents: [
     FabModalComponent,

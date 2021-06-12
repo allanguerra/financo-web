@@ -1,0 +1,9 @@
+<div class="input-avatar">
+  <label for="avatar">
+    <img [src]="imagePath" alt="avatar do usuário">
+    <i class="fas fa-camera"></i>
+  </label>
+  <input type="file" name="avatar" id="avatar"
+    accept=".svg,.png,.jpg,.jpeg"
+    (change)="change($event.target.files)">
+</div>

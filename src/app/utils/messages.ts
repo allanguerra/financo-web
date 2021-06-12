@@ -60,5 +60,20 @@ export const Messages = {
     title: 'Usuário removido do Board',
     text: 'O usuário foi removido e não terá masi acesso ao Board.',
     type: MessageType.SUCCESS
+  },
+  PROFILE_UPDATED: {
+    title: 'Perfil atualizado',
+    text: 'Seu perfil foi atualizado com sucesso.',
+    type: MessageType.SUCCESS
+  },
+  WRONG_IMAGE_TYPE: {
+    title: 'Extensão não suportada',
+    text: 'São aceitas apenas imagens com as extensões: .png, .svg, .jpg, .jpeg',
+    type: MessageType.WARNING
+  },
+  AVATAR_UPLOADED: {
+    title: 'Avatar atualizado',
+    text: 'Seu avatar foi atualizado com sucesso.',
+    type: MessageType.SUCCESS
   }
 };

@@ -17,7 +17,8 @@ export const api = {
   user: {
     get: `${BASE_URL}/users`,
     profile: {
-      update: `${BASE_URL}/users/:userId/profile`
+      update: `${BASE_URL}/users/:userId/profile`,
+      uploadAvatar: `${BASE_URL}/users/:userId/profile/thumbnail`
     }
   },
   boards: {

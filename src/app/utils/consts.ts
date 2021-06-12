@@ -11,6 +11,10 @@ export const SESSION = {
   ACTIVE_BOARD: 'active-board'
 };
 
+export const TYPES = {
+  IMAGES: ['image/svg', 'image/png', 'image/jpg', 'image/jpeg']
+};
+
 export const MASK = {
   CURRENCY: {
     mask: Number,
