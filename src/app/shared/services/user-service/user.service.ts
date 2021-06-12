@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { api } from '@env/environment';
 import { Profile } from '@src/app/shared/models/profile.model';
@@ -13,6 +13,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
+
+  public profileUpdated: EventEmitter<Profile> = new EventEmitter<Profile>();
 
   private profile: Profile;
   private payload: TokenPayload;
@@ -52,15 +54,23 @@ export class UserService {
     return this.http.get<User>(`${api.user.get}/${this.payload.sub}`).pipe(
       map((user: User) => {
         this.profile = user.profile;
+        this.notifyProfileUpdate();
         return;
       })
     );
 
   }
 
+  public notifyProfileUpdate(): void {
+    setTimeout(() => {
+      this.profileUpdated.emit(this.profile);
+    }, 500);
+  }
+
   public logout(): void {
     localStorage.removeItem(SESSION.TOKEN);
     sessionStorage.removeItem(SESSION.ACTIVE_BOARD);
+    this.profile = null;
     this.router.navigate(['/join/login']);
   }
 
