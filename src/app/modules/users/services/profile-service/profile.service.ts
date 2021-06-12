@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { api } from '@env/environment';
+import { ImageData } from '@src/app/shared/models/image-data.model';
 import { Profile } from '@src/app/shared/models/profile.model';
 import { TokenPayload } from '@src/app/shared/models/token-payload.model';
 import { UserService } from '@src/app/shared/services/user-service/user.service';
@@ -22,6 +23,14 @@ export class ProfileService {
   public updateUserProfile(profile: Profile): Observable<void> {
     const userId = this.userService.getUserId();
     return this.http.patch<void>(api.user.profile.update.replace(':userId', userId), profile)
+      .pipe(
+        switchMap(() => this.userService.updateProfile())
+      );
+  }
+
+  public uploadUserAvatar(avatar: ImageData): Observable<void> {
+    const userId = this.userService.getUserId();
+    return this.http.patch<void>(api.user.profile.uploadAvatar.replace(':userId', userId), avatar)
       .pipe(
         switchMap(() => this.userService.updateProfile())
       );
