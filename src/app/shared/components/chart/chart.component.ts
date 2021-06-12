@@ -4,8 +4,7 @@ import { SIZES } from '@src/app/utils/consts';
 
 @Component({
   selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  templateUrl: './chart.component.html'
 })
 export class ChartComponent implements OnChanges, OnInit {
 
@@ -32,7 +31,7 @@ export class ChartComponent implements OnChanges, OnInit {
   }
 
   public setHeight(): string {
-    return this.screenWidth < SIZES.MEDIUM_SCRREN_UP ? '60vw' : '30vw';
+    return this.screenWidth < SIZES.MEDIUM_SCRREN_UP ? '40vh' : '20vh';
   }
 
   // PRIVATE METHODS
