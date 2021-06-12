@@ -1,1 +1,36 @@
-<p>profile-form works!</p>
+<app-loadder *ngIf="isLoading"></app-loadder>
+
+<section class="form" *ngIf="!isLoading">
+  
+  <div class="form_back">
+    <app-button routerLink="/home"
+      text="Voltar" 
+      style-class="secondary outline sm"></app-button>
+  </div>
+
+  <div class="form_content">
+    <form [formGroup]="modelForm" (ngSubmit)="submit()">
+      <app-input-avatar [imagePath]="userAvatar"
+        (changeImage)="uploadAvatar($event)"></app-input-avatar>
+
+      <app-input label="Nome" [control]="modelForm.get('name')">
+        <input class="input-control" type="text" id="name" 
+               formControlName="name" placeholder="Seu nome">
+      </app-input>
+
+      <app-input label="Sobrenome" [control]="modelForm.get('surname')">
+        <input class="input-control" type="text" id="surname" 
+               formControlName="surname" placeholder="Seu sobrenome">
+      </app-input>
+
+      <app-input label="Celular" [control]="modelForm.get('phone')">
+        <input class="input-control" type="text" id="phone" 
+               formControlName="phone" placeholder="Seu celular">
+      </app-input>
+
+      <app-button text="salvar" type="submit" 
+        [disabled]="modelForm.invalid || isSubmiting"></app-button>
+    </form>
+  </div>
+
+</section>

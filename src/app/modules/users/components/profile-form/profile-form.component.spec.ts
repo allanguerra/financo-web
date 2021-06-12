@@ -1,6 +1,12 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ProfileFormComponent } from './profile-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ProfileFormComponent } from '@src/app/modules/users/components/profile-form/profile-form.component';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { InputAvatarComponent } from '@src/app/shared/components/input-avatar/input-avatar.component';
+import { InputComponent } from '@src/app/shared/components/input/input.component';
+import { LoadderComponent } from '@src/app/shared/components/loadder/loadder.component';
 
 describe('ProfileFormComponent', () => {
   let component: ProfileFormComponent;
@@ -8,7 +14,18 @@ describe('ProfileFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileFormComponent ]
+      imports: [
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+      ],
+      declarations: [
+        ProfileFormComponent,
+        LoadderComponent,
+        InputComponent,
+        ButtonComponent,
+        InputAvatarComponent
+      ]
     })
     .compileComponents();
   }));
